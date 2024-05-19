@@ -9,4 +9,5 @@ Rails.application.routes.draw do
 
   # Defines the root path route ("/")
   root "static_pages#index"
+  get "accounts", to: "static_pages#accounts", as: :accounts
 end

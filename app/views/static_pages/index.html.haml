@@ -1,70 +1,407 @@
-:ruby
-  maps = [
-    {source_exchange: 'Paypal', destination_exchange_currency: 'Jusan', source_exchange_currency_amount: '2000', destination_exchange_currency_amount: '40_000'},
-    {source_exchange: 'TBC', destination_exchange_currency: 'USDT', source_exchange_currency_amount: '2000', destination_exchange_currency_amount: '40_000'}
-  ]
+-# :ruby
+-#   maps = [
+-#     {source_exchange: 'Paypal', destination_exchange_currency: 'Jusan', source_exchange_currency_amount: '2000', destination_exchange_currency_amount: '40_000'},
+-#     {source_exchange: 'TBC', destination_exchange_currency: 'USDT', source_exchange_currency_amount: '2000', destination_exchange_currency_amount: '40_000'}
+-#   ]
 
-= maps[1]
+-# = maps[1]
 
-= form_for Map.new do |f|
-  = f.text_field :source_exchange
-  = f.text_field :destination_exchange_currency
-  = f.text_field :source_exchange_currency_amount
-  = f.text_field :destination_exchange_currency_amount
+-# = form_for Map.new do |f|
+-#   = f.text_field :source_exchange
+-#   = f.text_field :destination_exchange_currency
+-#   = f.text_field :source_exchange_currency_amount
+-#   = f.text_field :destination_exchange_currency_amount
 
-%h1 Схемы
-%table.table
-  %thead
-    %tr
-      %th{scope: "col"} #
-      %th{scope: "col"} source exchange
-      %th{scope: "col"} destination exchange currency
-      %th{scope: "col"} source_exchange currency amount
-      %th{scope: "col"} destination exchange currency amount
-  %tbody
-    %tr
-      %th{scope: "row"} 1
-      %td Paypal
-      %td Jusan
-      %td 2000
-      %td 40_000
-    %tr
-      %th{scope: "row"} 2
-      %td Jacob
-      %td Thornton
-      %td @fat
-      %td @mdo
-    %tr
-      %th{scope: "row"} 3
-      %td{colspan: "2"} Larry the Bird
-      %td Larry the Bird
-      %td @twitter
+-# %h1 Схемы
+-# %table.table
+-#   %thead
+-#     %tr
+-#       %th{scope: "col"} #
+-#       %th{scope: "col"} source exchange
+-#       %th{scope: "col"} destination exchange currency
+-#       %th{scope: "col"} source_exchange currency amount
+-#       %th{scope: "col"} destination exchange currency amount
+-#   %tbody
+-#     %tr
+-#       %th{scope: "row"} 1
+-#       %td Paypal
+-#       %td Jusan
+-#       %td 2000
+-#       %td 40_000
+-#     %tr
+-#       %th{scope: "row"} 2
+-#       %td Jacob
+-#       %td Thornton
+-#       %td @fat
+-#       %td @mdo
+-#     %tr
+-#       %th{scope: "row"} 3
+-#       %td{colspan: "2"} Larry the Bird
+-#       %td Larry the Bird
+-#       %td @twitter
 
-%h2 transactions
+-# %h2 transactions
 
-%table.table
-  %thead
-    %tr
-      %th{scope: "col"} #
-      %th{scope: "col"} source exchange
-      %th{scope: "col"} destination exchange currency
-      %th{scope: "col"} source_exchange currency amount
-      %th{scope: "col"} destination exchange currency amount
-  %tbody
-    %tr
-      %th{scope: "row"} 1
-      %td Paypal
-      %td Jusan
-      %td 2000
-      %td 40_000
-    %tr
-      %th{scope: "row"} 2
-      %td Jacob
-      %td Thornton
-      %td @fat
-      %td @mdo
-    %tr
-      %th{scope: "row"} 3
-      %td{colspan: "2"} Larry the Bird
-      %td Larry the Bird
-      %td @twitter
+-# %table.table
+-#   %thead
+-#     %tr
+-#       %th{scope: "col"} #
+-#       %th{scope: "col"} source exchange
+-#       %th{scope: "col"} destination exchange currency
+-#       %th{scope: "col"} source_exchange currency amount
+-#       %th{scope: "col"} destination exchange currency amount
+-#   %tbody
+-#     %tr
+-#       %th{scope: "row"} 1
+-#       %td Paypal
+-#       %td Jusan
+-#       %td 2000
+-#       %td 40_000
+-#     %tr
+-#       %th{scope: "row"} 2
+-#       %td Jacob
+-#       %td Thornton
+-#       %td @fat
+-#       %td @mdo
+-#     %tr
+-#       %th{scope: "row"} 3
+-#       %td{colspan: "2"} Larry the Bird
+-#       %td Larry the Bird
+-#       %td @twitter
+%body
+  .flex.h-full
+    .p-6.pb-20.shrink-0.h-full.overflow-y-auto{class: "w-[368px]"}
+      / BEGIN app/views/layouts/_sidebar.html.erb
+      .flex.items-center.justify-between
+        %a{href: "/"}
+          %img{alt: "ChangeMap", class: "h-[22px]", src: "/assets/logo-2f119cf39fed5b52145871de289c4efc51aac7dd.svg"}/
+        #user-menu{"data-controller" => "menu"}
+          %button{"data-menu-target" => "button"}
+            .text-white.w-9.h-9.bg-gray-400.rounded-full.flex.items-center.justify-center.text-lg.uppercase E
+          .hidden.absolute.z-10.top-10.bg-white.rounded-sm.shadow-xs.border.border-alpha-black-25{class: "w-[240px] left-[255px] top-[72px]", "data-menu-target" => "content"}
+            .p-3.flex.items-center.gap-3
+              .text-white.shrink-0.w-9.h-9.bg-gray-400.rounded-full.flex.items-center.justify-center.text-lg.uppercase E
+              %div
+                %span.text-gray-900.font-medium.text-sm eg@mail.ru
+            .border-t.border-b.border-alpha-black-100.p-1
+              %a.flex.gap-2.items-center.hover:bg-gray-50.rounded-lg.px-3.py-2{href: "/settings/profile"}
+                %svg.w-5.h-5.text-gray-500.shrink-0{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                  %path{d: "M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z"}
+                  %circle{cx: "12", cy: "12", r: "3"}
+                %span.text-gray-900.text-sm Settings
+              .flex.justify-between.items-center.gap-2
+                .flex.items-center.gap-2.rounded-lg.px-3.py-2
+                  %svg.w-5.h-5.text-gray-500.shrink-0{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                    %rect{height: "16", rx: "2", width: "20", x: "2", y: "4"}
+                    %path{d: "M10 4v4"}
+                    %path{d: "M2 8h20"}
+                    %path{d: "M6 4v4"}
+                  %div
+                    %span.text-gray-900.text-sm Demo mode
+                    %span.text-gray-500.text-xs.block Coming soon...
+                .relative.inline-block.cursor-not-allowed{title: "Coming soon..."}
+                  %label.cursor-not-allowed.block.bg-gray-100.w-9.h-5.rounded-full.after:block.after:absolute.after:bg-white.after:w-4.after:h-4.after:rounded-full.after:transition-transform.after:duration-300.after:ease-in-out.peer-checked:bg-green-600.peer-checked:after:translate-x-4{class: "after:content-[''] after:top-0.5 after:left-0.5"}
+            .border-t.border-b.border-alpha-black-100.p-1
+              %a.flex.gap-2.items-center.hover:bg-gray-50.rounded-lg.px-3.py-2{href: "/changelog"}
+                %svg.w-5.h-5.text-gray-500.shrink-0{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                  %path{d: "M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"}
+                  %path{d: "m3.3 7 8.7 5 8.7-5"}
+                  %path{d: "M12 22V12"}
+                %span.text-gray-900.text-sm Changelog
+              %a.flex.gap-2.items-center.hover:bg-gray-50.rounded-lg.px-3.py-2{href: "/feedback"}
+                %svg.w-5.h-5.text-gray-500.shrink-0{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                  %path{d: "m3 11 18-5v12L3 14v-3z"}
+                  %path{d: "M11.6 16.8a3 3 0 1 1-5.8-1.6"}
+                %span.text-gray-900.text-sm Feedback
+              %a.flex.gap-2.items-center.hover:bg-gray-50.rounded-lg.px-3.py-2{href: ""}
+                %svg.w-5.h-5.text-gray-500.shrink-0{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                  %path{d: "M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"}
+                  %path{d: "M8 10h.01"}
+                  %path{d: "M12 10h.01"}
+                  %path{d: "M16 10h.01"}
+                %span.text-gray-900.text-sm Contact
+            .p-1
+              %form.button_to{action: "/session", method: "post"}
+                %input{autocomplete: "off", name: "_method", type: "hidden", value: "delete"}/
+                %button.w-full.text-red-400.flex.gap-1.items-center.hover:bg-gray-50.rounded-lg.px-3.py-2{type: "submit"}
+                  %svg.w-5.h-5.shrink-0{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                    %path{d: "M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"}
+                    %polyline{points: "16 17 21 12 16 7"}
+                    %line{x1: "21", x2: "9", y1: "12", y2: "12"}
+                  %span.text-sm Logout
+                %input{autocomplete: "off", name: "authenticity_token", type: "hidden", value: "75Tpp56kjPbmx3ytKl_KLHucgbXIXhMNWmHGu7oifIfwfMXBSHZSoBDG3EMUpFgxOMJXgiqxqKCLWcyDaeJmCw"}/
+      %nav
+        %ul.mt-6.space-y-1
+          %li
+            %a.flex.items-center.gap-2.px-3.py-2.rounded-xl.border.text-sm.font-medium.text-gray-500.bg-white.text-gray-900.shadow-xs.border-alpha-black-50{"aria-current" => "page", href: "/", icon: "layout-grid"}
+              %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}>
+                %rect{height: "7", rx: "1", width: "7", x: "3", y: "3"}
+                %rect{height: "7", rx: "1", width: "7", x: "14", y: "3"}
+                %rect{height: "7", rx: "1", width: "7", x: "14", y: "14"}
+                %rect{height: "7", rx: "1", width: "7", x: "3", y: "14"}
+              Dashboard
+          %li
+            %a.flex.items-center.gap-2.px-3.py-2.rounded-xl.border.text-sm.font-medium.text-gray-500.hover:bg-gray-100.border-transparent{href: "/accounts/summary", icon: "layers"}
+              %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}>
+                %path{d: "m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"}
+                %path{d: "m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"}
+                %path{d: "m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"}
+              Accounts
+          %li
+            %a.flex.items-center.gap-2.px-3.py-2.rounded-xl.border.text-sm.font-medium.text-gray-500.hover:bg-gray-100.border-transparent{href: "/transactions", icon: "credit-card"}
+              %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}>
+                %rect{height: "14", rx: "2", width: "20", x: "2", y: "5"}
+                %line{x1: "2", x2: "22", y1: "10", y2: "10"}
+              Transactions
+      .flex.flex-col.mt-6
+        .flex.items-center.justify-between.px-3.py-2.mb-2
+          .flex.items-center.gap-2.text-xs.uppercase.text-gray-500
+            %a.text-xs.uppercase.text-gray-500.font-bold.tracking-wide{href: "/accounts"}
+              Portfolio
+            %span.font-bold.tracking-wide •
+            %form.space-y-4{"accept-charset" => "UTF-8", action: "/accounts/list", "data-controller" => "auto-submit-form", "data-turbo-frame" => "account-list", method: "get"}
+              / BEGIN app/views/shared/_period_select.html.erb
+              .relative{"data-controller" => "select", "data-select-active-class" => "bg-alpha-black-50", "data-select-selected-value" => "last_30_days"}
+                %button.flex.items-center.gap-1.w-full.cursor-pointer.font-bold.tracking-wide{"data-select-target" => "button", type: "button"}
+                  %span{"data-select-target" => "buttonText"} 1M
+                  %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                    %path{d: "m6 9 6 6 6-6"}
+                %input{"data-auto-submit-form-target" => "auto", "data-select-target" => "input", name: "period", type: "hidden"}/
+                %ul.hidden.absolute.z-10.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs{class: "top-[100%]", "data-select-target" => "list"}
+                  %li.text-sm.text-gray-900.rounded-lg.cursor-pointer.hover:bg-alpha-black-50.px-5.py-1{"aria-selected" => "false", "data-action" => "click->select#selectOption", "data-select-target" => "option", "data-value" => "last_7_days", tabindex: "-1"}
+                    7D
+                  %li.text-sm.text-gray-900.rounded-lg.cursor-pointer.hover:bg-alpha-black-50.px-5.py-1.bg-alpha-black-50{"aria-selected" => "true", "data-action" => "click->select#selectOption", "data-select-target" => "option", "data-value" => "last_30_days", tabindex: "-1"}
+                    1M
+                  %li.text-sm.text-gray-900.rounded-lg.cursor-pointer.hover:bg-alpha-black-50.px-5.py-1{"aria-selected" => "false", "data-action" => "click->select#selectOption", "data-select-target" => "option", "data-value" => "last_365_days", tabindex: "-1"}
+                    1Y
+                  %li.text-sm.text-gray-900.rounded-lg.cursor-pointer.hover:bg-alpha-black-50.px-5.py-1{"aria-selected" => "false", "data-action" => "click->select#selectOption", "data-select-target" => "option", "data-value" => "all", tabindex: "-1"}
+                    All
+              / END app/views/shared/_period_select.html.erb
+          %a.block.hover:bg-gray-100.p-2.text-sm.font-semibold.text-gray-900.flex.items-center.rounded{"data-turbo-frame" => "modal", href: "/accounts/new", title: "New account"}
+            %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+              %path{d: "M5 12h14"}
+              %path{d: "M12 5v14"}
+        %turbo-frame#account-list{target: "_top"}
+          / BEGIN app/views/accounts/_account_list.html.erb
+          %details.mb-1.text-sm.group{"data-account-collapse-type-value" => "Account::Depository", "data-controller" => "account-collapse", open: ""}
+            %summary.flex.gap-4.px-3.py-2.items-center.w-full.font-medium.hover:bg-gray-100{class: "rounded-[10px]"}
+              %svg.hidden.group-open:block.text-gray-500.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m6 9 6 6 6-6"}
+              %svg.group-open:hidden.text-gray-500.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m9 18 6-6-6-6"}
+              .text-left Bank Account
+              .ml-auto.flex.flex-col.items-end
+                %p.text-right $0.00
+                .flex.items-center.gap-1
+                  #Account::Depository_sparkline.h-3.w-8.ml-auto{"data-controller" => "time-series-chart", "data-time-series-chart-data-value" => "{\"values\":[],\"trend\":{\"favorable_direction\":\"up\",\"direction\":\"flat\",\"value\":0,\"percent\":0.0},\"favorable_direction\":\"up\"}", "data-time-series-chart-stroke-width-value" => "1", "data-time-series-chart-use-labels-value" => "false", "data-time-series-chart-use-tooltip-value" => "false"}
+                    %svg{height: "12", viewbox: "0,0,32,12", width: "32"}
+                      %line{stroke: "#D6D6D6", "stroke-dasharray" => "4, 4", x1: "16", x2: "16", y1: "0", y2: "12"}
+                      %circle{cx: "16", cy: "6", r: "4", style: "fill: rgb(163, 163, 163);"}
+                  %span.text-xs.text-gray-500 +0.00%
+            %a.flex.items-center.min-h-10.gap-4.px-3.py-2.mb-1.text-gray-500.text-sm.font-medium.hover:bg-gray-100{class: "rounded-[10px]", "data-turbo-frame" => "modal", href: "/accounts/new?step=method&type=Depository"}
+              %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "M5 12h14"}
+                %path{d: "M12 5v14"}
+              %p New bank account
+          / END app/views/accounts/_account_list.html.erb
+          / BEGIN app/views/accounts/_account_list.html.erb
+          %details.mb-1.text-sm.group{"data-account-collapse-type-value" => "Account::Investment", "data-controller" => "account-collapse"}
+            %summary.flex.gap-4.px-3.py-2.items-center.w-full.font-medium.hover:bg-gray-100{class: "rounded-[10px]"}
+              %svg.hidden.group-open:block.text-gray-500.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m6 9 6 6 6-6"}
+              %svg.group-open:hidden.text-gray-500.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m9 18 6-6-6-6"}
+              .text-left Investment
+              .ml-auto.flex.flex-col.items-end
+                %p.text-right $0.00
+                .flex.items-center.gap-1
+                  #Account::Investment_sparkline.h-3.w-8.ml-auto{"data-controller" => "time-series-chart", "data-time-series-chart-data-value" => "{\"values\":[],\"trend\":{\"favorable_direction\":\"up\",\"direction\":\"flat\",\"value\":0,\"percent\":0.0},\"favorable_direction\":\"up\"}", "data-time-series-chart-stroke-width-value" => "1", "data-time-series-chart-use-labels-value" => "false", "data-time-series-chart-use-tooltip-value" => "false"}
+                    %svg{height: "12", viewbox: "0,0,32,12", width: "32"}
+                      %line{stroke: "#D6D6D6", "stroke-dasharray" => "4, 4", x1: "16", x2: "16", y1: "0", y2: "12"}
+                      %circle{cx: "16", cy: "6", r: "4", style: "fill: rgb(163, 163, 163);"}
+                  %span.text-xs.text-gray-500 +0.00%
+            %a.flex.items-center.min-h-10.gap-4.px-3.py-2.mb-1.text-gray-500.text-sm.font-medium.hover:bg-gray-100{class: "rounded-[10px]", "data-turbo-frame" => "modal", href: "/accounts/new?step=method&type=Investment"}
+              %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "M5 12h14"}
+                %path{d: "M12 5v14"}
+              %p New investment
+          / END app/views/accounts/_account_list.html.erb
+          / BEGIN app/views/accounts/_account_list.html.erb
+          %details.mb-1.text-sm.group{"data-account-collapse-type-value" => "Account::Crypto", "data-controller" => "account-collapse", open: ""}
+            %summary.flex.gap-4.px-3.py-2.items-center.w-full.font-medium.hover:bg-gray-100{class: "rounded-[10px]"}
+              %svg.hidden.group-open:block.text-gray-500.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m6 9 6 6 6-6"}
+              %svg.group-open:hidden.text-gray-500.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m9 18 6-6-6-6"}
+              .text-left Crypto
+              .ml-auto.flex.flex-col.items-end
+                %p.text-right $0.00
+                .flex.items-center.gap-1
+                  #Account::Crypto_sparkline.h-3.w-8.ml-auto{"data-controller" => "time-series-chart", "data-time-series-chart-data-value" => "{\"values\":[],\"trend\":{\"favorable_direction\":\"up\",\"direction\":\"flat\",\"value\":0,\"percent\":0.0},\"favorable_direction\":\"up\"}", "data-time-series-chart-stroke-width-value" => "1", "data-time-series-chart-use-labels-value" => "false", "data-time-series-chart-use-tooltip-value" => "false"}
+                    %svg{height: "12", viewbox: "0,0,32,12", width: "32"}
+                      %line{stroke: "#D6D6D6", "stroke-dasharray" => "4, 4", x1: "16", x2: "16", y1: "0", y2: "12"}
+                      %circle{cx: "16", cy: "6", r: "4", style: "fill: rgb(163, 163, 163);"}
+                  %span.text-xs.text-gray-500 +0.00%
+            %a.flex.items-center.min-h-10.gap-4.px-3.py-2.mb-1.text-gray-500.text-sm.font-medium.hover:bg-gray-100{class: "rounded-[10px]", "data-turbo-frame" => "modal", href: "/accounts/new?step=method&type=Crypto"}
+              %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "M5 12h14"}
+                %path{d: "M12 5v14"}
+              %p New crypto
+          / END app/views/accounts/_account_list.html.erb
+          / BEGIN app/views/accounts/_account_list.html.erb
+          %details.mb-1.text-sm.group{"data-account-collapse-type-value" => "Account::OtherAsset", "data-controller" => "account-collapse"}
+            %summary.flex.gap-4.px-3.py-2.items-center.w-full.font-medium.hover:bg-gray-100{class: "rounded-[10px]"}
+              %svg.hidden.group-open:block.text-gray-500.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m6 9 6 6 6-6"}
+              %svg.group-open:hidden.text-gray-500.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m9 18 6-6-6-6"}
+              .text-left Other Asset
+              .ml-auto.flex.flex-col.items-end
+                %p.text-right $0.00
+                .flex.items-center.gap-1
+                  #Account::OtherAsset_sparkline.h-3.w-8.ml-auto{"data-controller" => "time-series-chart", "data-time-series-chart-data-value" => "{\"values\":[],\"trend\":{\"favorable_direction\":\"up\",\"direction\":\"flat\",\"value\":0,\"percent\":0.0},\"favorable_direction\":\"up\"}", "data-time-series-chart-stroke-width-value" => "1", "data-time-series-chart-use-labels-value" => "false", "data-time-series-chart-use-tooltip-value" => "false"}
+                    %svg{height: "12", viewbox: "0,0,32,12", width: "32"}
+                      %line{stroke: "#D6D6D6", "stroke-dasharray" => "4, 4", x1: "16", x2: "16", y1: "0", y2: "12"}
+                      %circle{cx: "16", cy: "6", r: "4", style: "fill: rgb(163, 163, 163);"}
+                  %span.text-xs.text-gray-500 +0.00%
+            %a.flex.items-center.min-h-10.gap-4.px-3.py-2.mb-1.text-gray-500.text-sm.font-medium.hover:bg-gray-100{class: "rounded-[10px]", "data-turbo-frame" => "modal", href: "/accounts/new?step=method&type=OtherAsset"}
+              %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "M5 12h14"}
+                %path{d: "M12 5v14"}
+              %p New other asset
+          / END app/views/accounts/_account_list.html.erb
+          / BEGIN app/views/accounts/_account_list.html.erb
+          %details.mb-1.text-sm.group{"data-account-collapse-type-value" => "Account::Property", "data-controller" => "account-collapse"}
+            %summary.flex.gap-4.px-3.py-2.items-center.w-full.font-medium.hover:bg-gray-100{class: "rounded-[10px]"}
+              %svg.hidden.group-open:block.text-gray-500.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m6 9 6 6 6-6"}
+              %svg.group-open:hidden.text-gray-500.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m9 18 6-6-6-6"}
+              .text-left Real Estate
+              .ml-auto.flex.flex-col.items-end
+                %p.text-right $0.00
+                .flex.items-center.gap-1
+                  #Account::Property_sparkline.h-3.w-8.ml-auto{"data-controller" => "time-series-chart", "data-time-series-chart-data-value" => "{\"values\":[],\"trend\":{\"favorable_direction\":\"up\",\"direction\":\"flat\",\"value\":0,\"percent\":0.0},\"favorable_direction\":\"up\"}", "data-time-series-chart-stroke-width-value" => "1", "data-time-series-chart-use-labels-value" => "false", "data-time-series-chart-use-tooltip-value" => "false"}
+                    %svg{height: "12", viewbox: "0,0,32,12", width: "32"}
+                      %line{stroke: "#D6D6D6", "stroke-dasharray" => "4, 4", x1: "16", x2: "16", y1: "0", y2: "12"}
+                      %circle{cx: "16", cy: "6", r: "4", style: "fill: rgb(163, 163, 163);"}
+                  %span.text-xs.text-gray-500 +0.00%
+            %a.flex.items-center.min-h-10.gap-4.px-3.py-2.mb-1.text-gray-500.text-sm.font-medium.hover:bg-gray-100{class: "rounded-[10px]", "data-turbo-frame" => "modal", href: "/accounts/new?step=method&type=Property"}
+              %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "M5 12h14"}
+                %path{d: "M12 5v14"}
+              %p New real estate
+          / END app/views/accounts/_account_list.html.erb
+          / BEGIN app/views/accounts/_account_list.html.erb
+          %details.mb-1.text-sm.group{"data-account-collapse-type-value" => "Account::Vehicle", "data-controller" => "account-collapse"}
+            %summary.flex.gap-4.px-3.py-2.items-center.w-full.font-medium.hover:bg-gray-100{class: "rounded-[10px]"}
+              %svg.hidden.group-open:block.text-gray-500.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m6 9 6 6 6-6"}
+              %svg.group-open:hidden.text-gray-500.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m9 18 6-6-6-6"}
+              .text-left Vehicle
+              .ml-auto.flex.flex-col.items-end
+                %p.text-right $0.00
+                .flex.items-center.gap-1
+                  #Account::Vehicle_sparkline.h-3.w-8.ml-auto{"data-controller" => "time-series-chart", "data-time-series-chart-data-value" => "{\"values\":[],\"trend\":{\"favorable_direction\":\"up\",\"direction\":\"flat\",\"value\":0,\"percent\":0.0},\"favorable_direction\":\"up\"}", "data-time-series-chart-stroke-width-value" => "1", "data-time-series-chart-use-labels-value" => "false", "data-time-series-chart-use-tooltip-value" => "false"}
+                    %svg{height: "12", viewbox: "0,0,32,12", width: "32"}
+                      %line{stroke: "#D6D6D6", "stroke-dasharray" => "4, 4", x1: "16", x2: "16", y1: "0", y2: "12"}
+                      %circle{cx: "16", cy: "6", r: "4", style: "fill: rgb(163, 163, 163);"}
+                  %span.text-xs.text-gray-500 +0.00%
+            %a.flex.items-center.min-h-10.gap-4.px-3.py-2.mb-1.text-gray-500.text-sm.font-medium.hover:bg-gray-100{class: "rounded-[10px]", "data-turbo-frame" => "modal", href: "/accounts/new?step=method&type=Vehicle"}
+              %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "M5 12h14"}
+                %path{d: "M12 5v14"}
+              %p New vehicle
+          / END app/views/accounts/_account_list.html.erb
+          / BEGIN app/views/accounts/_account_list.html.erb
+          %details.mb-1.text-sm.group{"data-account-collapse-type-value" => "Account::Credit", "data-controller" => "account-collapse"}
+            %summary.flex.gap-4.px-3.py-2.items-center.w-full.font-medium.hover:bg-gray-100{class: "rounded-[10px]"}
+              %svg.hidden.group-open:block.text-gray-500.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m6 9 6 6 6-6"}
+              %svg.group-open:hidden.text-gray-500.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m9 18 6-6-6-6"}
+              .text-left Credit Card
+              .ml-auto.flex.flex-col.items-end
+                %p.text-right $0.00
+                .flex.items-center.gap-1
+                  #Account::Credit_sparkline.h-3.w-8.ml-auto{"data-controller" => "time-series-chart", "data-time-series-chart-data-value" => "{\"values\":[],\"trend\":{\"favorable_direction\":\"up\",\"direction\":\"flat\",\"value\":0,\"percent\":0.0},\"favorable_direction\":\"up\"}", "data-time-series-chart-stroke-width-value" => "1", "data-time-series-chart-use-labels-value" => "false", "data-time-series-chart-use-tooltip-value" => "false"}
+                    %svg{height: "12", viewbox: "0,0,32,12", width: "32"}
+                      %line{stroke: "#D6D6D6", "stroke-dasharray" => "4, 4", x1: "16", x2: "16", y1: "0", y2: "12"}
+                      %circle{cx: "16", cy: "6", r: "4", style: "fill: rgb(163, 163, 163);"}
+                  %span.text-xs.text-gray-500 +0.00%
+            %a.flex.items-center.min-h-10.gap-4.px-3.py-2.mb-1.text-gray-500.text-sm.font-medium.hover:bg-gray-100{class: "rounded-[10px]", "data-turbo-frame" => "modal", href: "/accounts/new?step=method&type=Credit"}
+              %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "M5 12h14"}
+                %path{d: "M12 5v14"}
+              %p New credit card
+          / END app/views/accounts/_account_list.html.erb
+          / BEGIN app/views/accounts/_account_list.html.erb
+          %details.mb-1.text-sm.group{"data-account-collapse-type-value" => "Account::Loan", "data-controller" => "account-collapse"}
+            %summary.flex.gap-4.px-3.py-2.items-center.w-full.font-medium.hover:bg-gray-100{class: "rounded-[10px]"}
+              %svg.hidden.group-open:block.text-gray-500.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m6 9 6 6 6-6"}
+              %svg.group-open:hidden.text-gray-500.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m9 18 6-6-6-6"}
+              .text-left Loan
+              .ml-auto.flex.flex-col.items-end
+                %p.text-right $0.00
+                .flex.items-center.gap-1
+                  #Account::Loan_sparkline.h-3.w-8.ml-auto{"data-controller" => "time-series-chart", "data-time-series-chart-data-value" => "{\"values\":[],\"trend\":{\"favorable_direction\":\"up\",\"direction\":\"flat\",\"value\":0,\"percent\":0.0},\"favorable_direction\":\"up\"}", "data-time-series-chart-stroke-width-value" => "1", "data-time-series-chart-use-labels-value" => "false", "data-time-series-chart-use-tooltip-value" => "false"}
+                    %svg{height: "12", viewbox: "0,0,32,12", width: "32"}
+                      %line{stroke: "#D6D6D6", "stroke-dasharray" => "4, 4", x1: "16", x2: "16", y1: "0", y2: "12"}
+                      %circle{cx: "16", cy: "6", r: "4", style: "fill: rgb(163, 163, 163);"}
+                  %span.text-xs.text-gray-500 +0.00%
+            %a.flex.items-center.min-h-10.gap-4.px-3.py-2.mb-1.text-gray-500.text-sm.font-medium.hover:bg-gray-100{class: "rounded-[10px]", "data-turbo-frame" => "modal", href: "/accounts/new?step=method&type=Loan"}
+              %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "M5 12h14"}
+                %path{d: "M12 5v14"}
+              %p New loan
+          / END app/views/accounts/_account_list.html.erb
+          / BEGIN app/views/accounts/_account_list.html.erb
+          %details.mb-1.text-sm.group{"data-account-collapse-type-value" => "Account::OtherLiability", "data-controller" => "account-collapse"}
+            %summary.flex.gap-4.px-3.py-2.items-center.w-full.font-medium.hover:bg-gray-100{class: "rounded-[10px]"}
+              %svg.hidden.group-open:block.text-gray-500.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m6 9 6 6 6-6"}
+              %svg.group-open:hidden.text-gray-500.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m9 18 6-6-6-6"}
+              .text-left Other Liability
+              .ml-auto.flex.flex-col.items-end
+                %p.text-right $0.00
+                .flex.items-center.gap-1
+                  #Account::OtherLiability_sparkline.h-3.w-8.ml-auto{"data-controller" => "time-series-chart", "data-time-series-chart-data-value" => "{\"values\":[],\"trend\":{\"favorable_direction\":\"up\",\"direction\":\"flat\",\"value\":0,\"percent\":0.0},\"favorable_direction\":\"up\"}", "data-time-series-chart-stroke-width-value" => "1", "data-time-series-chart-use-labels-value" => "false", "data-time-series-chart-use-tooltip-value" => "false"}
+                    %svg{height: "12", viewbox: "0,0,32,12", width: "32"}
+                      %line{stroke: "#D6D6D6", "stroke-dasharray" => "4, 4", x1: "16", x2: "16", y1: "0", y2: "12"}
+                      %circle{cx: "16", cy: "6", r: "4", style: "fill: rgb(163, 163, 163);"}
+                  %span.text-xs.text-gray-500 +0.00%
+            %a.flex.items-center.min-h-10.gap-4.px-3.py-2.mb-1.text-gray-500.text-sm.font-medium.hover:bg-gray-100{class: "rounded-[10px]", "data-turbo-frame" => "modal", href: "/accounts/new?step=method&type=OtherLiability"}
+              %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "M5 12h14"}
+                %path{d: "M12 5v14"}
+              %p New other liability
+          / END app/views/accounts/_account_list.html.erb
+      / END app/views/layouts/_sidebar.html.erb
+    %main.grow.px-20.pt-6.pb-32.h-full.overflow-y-auto
+      / BEGIN app/views/pages/dashboard.html.erb
+      .space-y-4
+        %header.flex.items-center.justify-between
+          %div
+            %h1.sr-only Dashboard
+            %p.text-xl.font-medium.text-gray-900.mb-1 Welcome back,
+          %a.flex.text-white.text-sm.font-medium.items-center.gap-1.bg-gray-900.rounded-lg.p-2.pr-3{"data-turbo-frame" => "modal", href: "/accounts/new"}
+            %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+              %path{d: "M5 12h14"}
+              %path{d: "M12 5v14"}
+            %span New account
+        / BEGIN app/views/shared/_no_account_empty_state.html.erb
+        .flex.justify-center.items-center.text-sm{class: "h-[800px]"}
+          .text-center.flex.flex-col.items-center{class: "max-w-[300px]"}
+            %p.text-gray-900.mb-1.font-medium No accounts yet
+            %p.text-gray-500.mb-4 Since no accounts have been added, there's no data to display. Add your first accounts to start viewing dashboard data.
+            %a.w-fit.flex.text-white.text-sm.font-medium.items-center.gap-1.bg-gray-900.rounded-lg.p-2.pr-3{"data-turbo-frame" => "modal", href: "/accounts/new"}
+              %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "M5 12h14"}
+                %path{d: "M12 5v14"}
+              %span New account
+        / END app/views/shared/_no_account_empty_state.html.erb
+      / END app/views/pages/dashboard.html.erb
