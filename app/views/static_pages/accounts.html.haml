@@ -1,3 +1,9 @@
+:ruby
+  @maps = [
+        {source_exchange: 'Paypal', destination_exchange_currency: 'Jusan', source_exchange_currency_amount: '2000', destination_exchange_currency_amount: '40_000'},
+        {source_exchange: 'TBC', destination_exchange_currency: 'USDT', source_exchange_currency_amount: '2000', destination_exchange_currency_amount: '40_000'}
+      ]
+
 %body.h-full{"cz-shortcut-listen" => "true"}
   #notification-tray.fixed.z-50.space-y-1.top-6.right-6
   .flex.h-full
@@ -441,196 +447,35 @@
                 .w-40
                   %p Change
             .bg-white.border.border-alpha-black-25.shadow-xs.rounded-lg.divide-y.divide-alpha-black-50
-              %details.open:bg-gray-25.group
-                %summary.flex.p-4.items-center.w-full.rounded-lg.font-medium.hover:bg-gray-50.text-gray-500.text-sm.font-medium.cursor-pointer
-                  %svg.hidden.group-open:block.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
-                    %path{d: "m6 9 6 6 6-6"}
-                  %svg.group-open:hidden.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
-                    %path{d: "m9 18 6-6-6-6"}
-                  .ml-4.rounded-full.bg-violet-500{class: "h-2.5 w-2.5"}
-                  %p.text-gray-900.ml-2 Bank Account
-                  %span.mx-1 ·
-                  %div 0
-                  .ml-auto.text-right.flex.items-center.gap-10.text-sm.font-medium.text-gray-900
-                    .flex.items-center.justify-end.gap-2.w-24
-                      / BEGIN app/views/shared/_progress_circle.html.erb
-                      %svg{height: "16", width: "16"}
-                        / Background Circle
-                        %circle.fill-transparent.stroke-current.text-gray-300{cx: "8", cy: "8", r: "7", "stroke-width" => "2"}
-                        / Foreground Circle
-                        %circle.fill-transparent.stroke-current.text-violet-500{cx: "8", cy: "8", r: "7", "stroke-dasharray" => "43.982297150257104", "stroke-dashoffset" => "43.9822971502571", "stroke-width" => "2", transform: "rotate(-90, 8, 8)"}
-                      / END app/views/shared/_progress_circle.html.erb
-                      %p 0.0%
-                    .w-24
-                      %p $0.00
-                    .w-40
-                      / BEGIN app/views/shared/_trend_change.html.erb
-                      %p.text-sm.text-gray-500
-                        %span No change
-                      / END app/views/shared/_trend_change.html.erb
-                .px-4.py-3.space-y-4
-              %details.open:bg-gray-25.group
-                %summary.flex.p-4.items-center.w-full.rounded-lg.font-medium.hover:bg-gray-50.text-gray-500.text-sm.font-medium.cursor-pointer
-                  %svg.hidden.group-open:block.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
-                    %path{d: "m6 9 6 6 6-6"}
-                  %svg.group-open:hidden.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
-                    %path{d: "m9 18 6-6-6-6"}
-                  .ml-4.rounded-full.bg-blue-600{class: "h-2.5 w-2.5"}
-                  %p.text-gray-900.ml-2 Investment
-                  %span.mx-1 ·
-                  %div 0
-                  .ml-auto.text-right.flex.items-center.gap-10.text-sm.font-medium.text-gray-900
-                    .flex.items-center.justify-end.gap-2.w-24
-                      / BEGIN app/views/shared/_progress_circle.html.erb
-                      %svg{height: "16", width: "16"}
-                        / Background Circle
-                        %circle.fill-transparent.stroke-current.text-gray-300{cx: "8", cy: "8", r: "7", "stroke-width" => "2"}
-                        / Foreground Circle
-                        %circle.fill-transparent.stroke-current.text-blue-600{cx: "8", cy: "8", r: "7", "stroke-dasharray" => "43.982297150257104", "stroke-dashoffset" => "43.9822971502571", "stroke-width" => "2", transform: "rotate(-90, 8, 8)"}
-                      / END app/views/shared/_progress_circle.html.erb
-                      %p 0.0%
-                    .w-24
-                      %p $0.00
-                    .w-40
-                      / BEGIN app/views/shared/_trend_change.html.erb
-                      %p.text-sm.text-gray-500
-                        %span No change
-                      / END app/views/shared/_trend_change.html.erb
-                .px-4.py-3.space-y-4
-              %details.open:bg-gray-25.group
-                %summary.flex.p-4.items-center.w-full.rounded-lg.font-medium.hover:bg-gray-50.text-gray-500.text-sm.font-medium.cursor-pointer
-                  %svg.hidden.group-open:block.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
-                    %path{d: "m6 9 6 6 6-6"}
-                  %svg.group-open:hidden.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
-                    %path{d: "m9 18 6-6-6-6"}
-                  .ml-4.rounded-full.bg-gray-500{class: "h-2.5 w-2.5"}
-                  %p.text-gray-900.ml-2 Crypto
-                  %span.mx-1 ·
-                  %div 0
-                  .ml-auto.text-right.flex.items-center.gap-10.text-sm.font-medium.text-gray-900
-                    .flex.items-center.justify-end.gap-2.w-24
-                      / BEGIN app/views/shared/_progress_circle.html.erb
-                      %svg{height: "16", width: "16"}
-                        / Background Circle
-                        %circle.fill-transparent.stroke-current.text-gray-300{cx: "8", cy: "8", r: "7", "stroke-width" => "2"}
-                        / Foreground Circle
-                        %circle.fill-transparent.stroke-current.text-gray-500{cx: "8", cy: "8", r: "7", "stroke-dasharray" => "43.982297150257104", "stroke-dashoffset" => "43.9822971502571", "stroke-width" => "2", transform: "rotate(-90, 8, 8)"}
-                      / END app/views/shared/_progress_circle.html.erb
-                      %p 0.0%
-                    .w-24
-                      %p $0.00
-                    .w-40
-                      / BEGIN app/views/shared/_trend_change.html.erb
-                      %p.text-sm.text-gray-500
-                        %span No change
-                      / END app/views/shared/_trend_change.html.erb
-                .px-4.py-3.space-y-4
-              %details.open:bg-gray-25.group
-                %summary.flex.p-4.items-center.w-full.rounded-lg.font-medium.hover:bg-gray-50.text-gray-500.text-sm.font-medium.cursor-pointer
-                  %svg.hidden.group-open:block.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
-                    %path{d: "m6 9 6 6 6-6"}
-                  %svg.group-open:hidden.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
-                    %path{d: "m9 18 6-6-6-6"}
-                  .ml-4.rounded-full.bg-green-500{class: "h-2.5 w-2.5"}
-                  %p.text-gray-900.ml-2 Other Asset
-                  %span.mx-1 ·
-                  %div 0
-                  .ml-auto.text-right.flex.items-center.gap-10.text-sm.font-medium.text-gray-900
-                    .flex.items-center.justify-end.gap-2.w-24
-                      / BEGIN app/views/shared/_progress_circle.html.erb
-                      %svg{height: "16", width: "16"}
-                        / Background Circle
-                        %circle.fill-transparent.stroke-current.text-gray-300{cx: "8", cy: "8", r: "7", "stroke-width" => "2"}
-                        / Foreground Circle
-                        %circle.fill-transparent.stroke-current.text-green-500{cx: "8", cy: "8", r: "7", "stroke-dasharray" => "43.982297150257104", "stroke-dashoffset" => "43.9822971502571", "stroke-width" => "2", transform: "rotate(-90, 8, 8)"}
-                      / END app/views/shared/_progress_circle.html.erb
-                      %p 0.0%
-                    .w-24
-                      %p $0.00
-                    .w-40
-                      / BEGIN app/views/shared/_trend_change.html.erb
-                      %p.text-sm.text-gray-500
-                        %span No change
-                      / END app/views/shared/_trend_change.html.erb
-                .px-4.py-3.space-y-4
-              %details.open:bg-gray-25.group
-                %summary.flex.p-4.items-center.w-full.rounded-lg.font-medium.hover:bg-gray-50.text-gray-500.text-sm.font-medium.cursor-pointer
-                  %svg.hidden.group-open:block.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
-                    %path{d: "m6 9 6 6 6-6"}
-                  %svg.group-open:hidden.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
-                    %path{d: "m9 18 6-6-6-6"}
-                  .ml-4.rounded-full.bg-cyan-500{class: "h-2.5 w-2.5"}
-                  %p.text-gray-900.ml-2 Real Estate
-                  %span.mx-1 ·
-                  %div 1
-                  .ml-auto.text-right.flex.items-center.gap-10.text-sm.font-medium.text-gray-900
-                    .flex.items-center.justify-end.gap-2.w-24
-                      / BEGIN app/views/shared/_progress_circle.html.erb
-                      %svg{height: "16", width: "16"}
-                        / Background Circle
-                        %circle.fill-transparent.stroke-current.text-gray-300{cx: "8", cy: "8", r: "7", "stroke-width" => "2"}
-                        / Foreground Circle
-                        %circle.fill-transparent.stroke-current.text-cyan-500{cx: "8", cy: "8", r: "7", "stroke-dasharray" => "43.982297150257104", "stroke-dashoffset" => "0.0", "stroke-width" => "2", transform: "rotate(-90, 8, 8)"}
-                      / END app/views/shared/_progress_circle.html.erb
-                      %p 100.0%
-                    .w-24
-                      %p $1,200.00
-                    .w-40
-                      / BEGIN app/views/shared/_trend_change.html.erb
-                      %p.text-sm.text-gray-500
-                        %span No change
-                      / END app/views/shared/_trend_change.html.erb
-                .px-4.py-3.space-y-4
-                  .flex.items-center.justify-between.text-sm.font-medium.text-gray-900
-                    .flex.items-center.gap-4
-                      %img.w-8.h-8{src: "http://[::1]:3000/accounts/cb35ba3a-243d-4d55-8c3b-884b1279f055/logo"}/
-                      %div
-                        %p ere
-                    .flex.gap-10.items-center.text-right
+              - @maps.each do |item|
+                %details.open:bg-gray-25.group
+                  %summary.flex.p-4.items-center.w-full.rounded-lg.font-medium.hover:bg-gray-50.text-gray-500.text-sm.font-medium.cursor-pointer
+                    %svg.hidden.group-open:block.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                      %path{d: "m6 9 6 6 6-6"}
+                    %svg.group-open:hidden.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                      %path{d: "m9 18 6-6-6-6"}
+                    .ml-4.rounded-full.bg-violet-500{class: "h-2.5 w-2.5"}
+                    %p.text-gray-900.ml-2= item[:source_exchange]
+                    %span.mx-1 ·
+                    %div 0
+                    .ml-auto.text-right.flex.items-center.gap-10.text-sm.font-medium.text-gray-900
                       .flex.items-center.justify-end.gap-2.w-24
                         / BEGIN app/views/shared/_progress_circle.html.erb
                         %svg{height: "16", width: "16"}
                           / Background Circle
                           %circle.fill-transparent.stroke-current.text-gray-300{cx: "8", cy: "8", r: "7", "stroke-width" => "2"}
                           / Foreground Circle
-                          %circle.fill-transparent.stroke-current.text-cyan-500{cx: "8", cy: "8", r: "7", "stroke-dasharray" => "43.982297150257104", "stroke-dashoffset" => "0.0", "stroke-width" => "2", transform: "rotate(-90, 8, 8)"}
+                          %circle.fill-transparent.stroke-current.text-violet-500{cx: "8", cy: "8", r: "7", "stroke-dasharray" => "43.982297150257104", "stroke-dashoffset" => "43.9822971502571", "stroke-width" => "2", transform: "rotate(-90, 8, 8)"}
                         / END app/views/shared/_progress_circle.html.erb
-                        %p 100.0%
+                        %p 0.0%
                       .w-24
-                        %p $1,200.00
+                        %p $0.00
                       .w-40
                         / BEGIN app/views/shared/_trend_change.html.erb
                         %p.text-sm.text-gray-500
                           %span No change
                         / END app/views/shared/_trend_change.html.erb
-              %details.open:bg-gray-25.group
-                %summary.flex.p-4.items-center.w-full.rounded-lg.font-medium.hover:bg-gray-50.text-gray-500.text-sm.font-medium.cursor-pointer
-                  %svg.hidden.group-open:block.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
-                    %path{d: "m6 9 6 6 6-6"}
-                  %svg.group-open:hidden.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
-                    %path{d: "m9 18 6-6-6-6"}
-                  .ml-4.rounded-full.bg-pink-500{class: "h-2.5 w-2.5"}
-                  %p.text-gray-900.ml-2 Vehicle
-                  %span.mx-1 ·
-                  %div 0
-                  .ml-auto.text-right.flex.items-center.gap-10.text-sm.font-medium.text-gray-900
-                    .flex.items-center.justify-end.gap-2.w-24
-                      / BEGIN app/views/shared/_progress_circle.html.erb
-                      %svg{height: "16", width: "16"}
-                        / Background Circle
-                        %circle.fill-transparent.stroke-current.text-gray-300{cx: "8", cy: "8", r: "7", "stroke-width" => "2"}
-                        / Foreground Circle
-                        %circle.fill-transparent.stroke-current.text-pink-500{cx: "8", cy: "8", r: "7", "stroke-dasharray" => "43.982297150257104", "stroke-dashoffset" => "43.9822971502571", "stroke-width" => "2", transform: "rotate(-90, 8, 8)"}
-                      / END app/views/shared/_progress_circle.html.erb
-                      %p 0.0%
-                    .w-24
-                      %p $0.00
-                    .w-40
-                      / BEGIN app/views/shared/_trend_change.html.erb
-                      %p.text-sm.text-gray-500
-                        %span No change
-                      / END app/views/shared/_trend_change.html.erb
-                .px-4.py-3.space-y-4
+                  .px-4.py-3.space-y-4
           / END app/views/pages/_account_percentages_table.html.erb
         .p-4.bg-white.rounded-xl.shadow-xs.border.border-alpha-black-25.space-y-4
           .flex.justify-between.items-center.mb-5
