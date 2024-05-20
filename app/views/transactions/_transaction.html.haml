@@ -1,0 +1,330 @@
+.bg-gray-25.rounded-xl.p-1.w-full
+  .py-2.px-4.flex.items-center.justify-between.font-medium.text-xs.text-gray-500
+    %h4 Jun 07, 2024 · 1
+    %span -$40,000.00
+  .bg-white.shadow-xs.rounded-md.border.border-alpha-black-25.divide-y.divide-alpha-black-50
+    / BEGIN app/views/transactions/_transaction.html.erb
+    %turbo-frame#transaction_49938aef-4962-493a-a1f9-f0de854930c0.text-gray-900.flex.items-center.gap-6.py-4.text-sm.font-medium.px-4
+      %a.group{"data-turbo-frame" => "modal", href: "/transactions/49938aef-4962-493a-a1f9-f0de854930c0"}
+        / BEGIN app/views/transactions/_transaction_name.html.erb
+        .flex.items-center.gap-2.w-96
+          .w-8.h-8.flex.items-center.justify-center.rounded-full.text-gray-600{class: "bg-gray-600/5"}
+            P
+          %p.text-gray-900.group-hover:underline.group-hover:text-gray-800.truncate
+            Paypal
+        / END app/views/transactions/_transaction_name.html.erb
+      .w-48
+        / BEGIN app/views/transactions/categories/_menu.html.erb
+        .relative{"data-controller" => "menu"}
+          %button.flex{"data-menu-target" => "button cursor-pointer"}
+            / BEGIN app/views/transactions/categories/_badge.html.erb
+            %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #c44fe9 5%, white);\r\n    border-color: color-mix(in srgb, #c44fe9 10%, white);\r\n    color: #c44fe9;"}
+              Salary
+            / END app/views/transactions/categories/_badge.html.erb
+          .absolute.z-10.hidden.w-screen.mt-2.max-w-min.cursor-default{"data-menu-target" => "content"}
+            .w-64.text-sm.font-semibold.leading-6.text-gray-900.bg-white.shadow-lg.shrink.rounded-xl.ring-1{class: "ring-gray-900/5"}
+              .flex.flex-col.relative{"data-controller" => "list-filter"}
+                .grow{class: "p-1.5"}
+                  .relative.flex.items-center.bg-white.border.border-gray-200.rounded-lg
+                    %input.placeholder:text-sm.placeholder:text-gray-500.font-normal.h-10.relative.pl-10.w-full.border-none.rounded-lg{autocomplete: "nope", "data-action" => "list-filter#filter", "data-list-filter-target" => "input", placeholder: "Search", type: "search"}/
+                    %svg.w-5.h-5.text-gray-500.ml-2.absolute.inset-0.transform{"aria-hidden" => "true", class: "top-1/2 -translate-y-1/2", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                      %circle{cx: "11", cy: "11", r: "8"}
+                      %path{d: "m21 21-4.3-4.3"}
+                .flex.flex-col.mr-2.max-h-64.overflow-y-scroll.scrollbar{class: "gap-0.5 p-1.5 mt-0.5", "data-list-filter-target" => "list"}
+                  .pb-2.pl-4.mr-2.text-gray-500.hidden{"data-list-filter-target" => "emptyMessage"}
+                    No categories found
+                  / BEGIN app/views/transactions/categories/dropdown/_row.html.erb
+                  .filterable-item.flex.justify-between.items-center.border-none.rounded-lg.px-2.py-1.group.w-full.bg-gray-25{"data-filter-name" => "Salary"}
+                    %form.button_to{action: "/transactions/49938aef-4962-493a-a1f9-f0de854930c0?transaction%5Bcategory_id%5D=1be92cab-c523-4b38-8982-014c8e8136a9", method: "post"}
+                      %input{autocomplete: "off", name: "_method", type: "hidden", value: "patch"}/
+                      %button.flex.w-full.items-center.cursor-pointer{class: "gap-1.5", type: "submit"}
+                        %span.w-5.h-5
+                          %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                            %path{d: "M20 6 9 17l-5-5"}
+                        / BEGIN app/views/transactions/categories/_badge.html.erb
+                        %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #c44fe9 5%, white);\r\n    border-color: color-mix(in srgb, #c44fe9 10%, white);\r\n    color: #c44fe9;"}
+                          Auto &amp; Transport
+                        / END app/views/transactions/categories/_badge.html.erb
+                      %input{autocomplete: "off", name: "authenticity_token", type: "hidden", value: "Hl8B-9dq6ZUMlY5WTv0fOa-wRbyj_KdoM-oVQm2g42pz8OFwp_i4b90aQqdbqYnP2X8rVnBmyFb_ZTppohPR4w"}/
+                    .relative.cursor-pointer{"data-controller" => "menu"}
+                      %button.flex.hover:bg-gray-100.p-2.rounded{"data-menu-target" => "button"}
+                        %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %circle{cx: "12", cy: "12", r: "1"}
+                          %circle{cx: "19", cy: "12", r: "1"}
+                          %circle{cx: "5", cy: "12", r: "1"}
+                      .absolute.z-10.top-10.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs.hidden{"data-menu-target" => "content"}
+                        .w-48.p-1.text-sm.leading-6.text-gray-900.bg-white.shadow-lg.shrink.rounded-xl.ring-1{class: "ring-gray-900/5"}
+                          %a.block.w-full.py-2.px-3.space-x-2.text-gray-900.hover:bg-gray-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/1be92cab-c523-4b38-8982-014c8e8136a9/edit"}
+                            %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                              %path{d: "M12 20h9"}
+                              %path{d: "M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"}
+                              %path{d: "m15 5 3 3"}
+                            %span Edit category
+                          %a.block.w-full.py-2.px-3.space-x-2.text-red-600.hover:bg-red-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/1be92cab-c523-4b38-8982-014c8e8136a9/deletions/new"}
+                            %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                              %path{d: "M3 6h18"}
+                              %path{d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"}
+                              %path{d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"}
+                              %line{x1: "10", x2: "10", y1: "11", y2: "17"}
+                              %line{x1: "14", x2: "14", y1: "11", y2: "17"}
+                            %span Delete category
+                  / END app/views/transactions/categories/dropdown/_row.html.erb
+                  / BEGIN app/views/transactions/categories/dropdown/_row.html.erb
+                  .filterable-item.flex.justify-between.items-center.border-none.rounded-lg.px-2.py-1.group.w-full{"data-filter-name" => "Food & Drink"}
+                    %form.button_to{action: "/transactions/49938aef-4962-493a-a1f9-f0de854930c0?transaction%5Bcategory_id%5D=e717621c-fc1e-4aa4-a50d-a76d17a9ca44", method: "post"}
+                      %input{autocomplete: "off", name: "_method", type: "hidden", value: "patch"}/
+                      %button.flex.w-full.items-center.cursor-pointer{class: "gap-1.5", type: "submit"}
+                        %span.w-5.h-5
+                        / BEGIN app/views/transactions/categories/_badge.html.erb
+                        %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #4da568 5%, white);\r\n    border-color: color-mix(in srgb, #4da568 10%, white);\r\n    color: #4da568;"}
+                          Food &amp; Drink
+                        / END app/views/transactions/categories/_badge.html.erb
+                      %input{autocomplete: "off", name: "authenticity_token", type: "hidden", value: "vrGxW0Tqp-EeXMdK4gVOlxdqraDlcPqbS8XFIYCgzrHTHlHQNHj2G8_TC7v3UdhhYaXDSjbqlaWHSuoKTxP8OA"}/
+                    .relative.cursor-pointer{"data-controller" => "menu"}
+                      %button.flex.hover:bg-gray-100.p-2.rounded{"data-menu-target" => "button"}
+                        %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %circle{cx: "12", cy: "12", r: "1"}
+                          %circle{cx: "19", cy: "12", r: "1"}
+                          %circle{cx: "5", cy: "12", r: "1"}
+                      .absolute.z-10.top-10.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs.hidden{"data-menu-target" => "content"}
+                        .w-48.p-1.text-sm.leading-6.text-gray-900.bg-white.shadow-lg.shrink.rounded-xl.ring-1{class: "ring-gray-900/5"}
+                          %a.block.w-full.py-2.px-3.space-x-2.text-gray-900.hover:bg-gray-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/e717621c-fc1e-4aa4-a50d-a76d17a9ca44/edit"}
+                            %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                              %path{d: "M12 20h9"}
+                              %path{d: "M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"}
+                              %path{d: "m15 5 3 3"}
+                            %span Edit category
+                          %a.block.w-full.py-2.px-3.space-x-2.text-red-600.hover:bg-red-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/e717621c-fc1e-4aa4-a50d-a76d17a9ca44/deletions/new"}
+                            %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                              %path{d: "M3 6h18"}
+                              %path{d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"}
+                              %path{d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"}
+                              %line{x1: "10", x2: "10", y1: "11", y2: "17"}
+                              %line{x1: "14", x2: "14", y1: "11", y2: "17"}
+                            %span Delete category
+                  / END app/views/transactions/categories/dropdown/_row.html.erb
+                  / BEGIN app/views/transactions/categories/dropdown/_row.html.erb
+                  .filterable-item.flex.justify-between.items-center.border-none.rounded-lg.px-2.py-1.group.w-full{"data-filter-name" => "Entertainment"}
+                    %form.button_to{action: "/transactions/49938aef-4962-493a-a1f9-f0de854930c0?transaction%5Bcategory_id%5D=782302d6-a87b-4347-a77b-bbcc70c106ab", method: "post"}
+                      %input{autocomplete: "off", name: "_method", type: "hidden", value: "patch"}/
+                      %button.flex.w-full.items-center.cursor-pointer{class: "gap-1.5", type: "submit"}
+                        %span.w-5.h-5
+                        / BEGIN app/views/transactions/categories/_badge.html.erb
+                        %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #6471eb 5%, white);\r\n    border-color: color-mix(in srgb, #6471eb 10%, white);\r\n    color: #6471eb;"}
+                          Entertainment
+                        / END app/views/transactions/categories/_badge.html.erb
+                      %input{autocomplete: "off", name: "authenticity_token", type: "hidden", value: "uvWQAVrcx9L5MUGT6D8PU-gq--DxTujaxzlwtuo4BlbXWnCKKk6WKCi-jWL9a5mlnuWVCiLUh-QLtl-dJYs03w"}/
+                    .relative.cursor-pointer{"data-controller" => "menu"}
+                      %button.flex.hover:bg-gray-100.p-2.rounded{"data-menu-target" => "button"}
+                        %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %circle{cx: "12", cy: "12", r: "1"}
+                          %circle{cx: "19", cy: "12", r: "1"}
+                          %circle{cx: "5", cy: "12", r: "1"}
+                      .absolute.z-10.top-10.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs.hidden{"data-menu-target" => "content"}
+                        .w-48.p-1.text-sm.leading-6.text-gray-900.bg-white.shadow-lg.shrink.rounded-xl.ring-1{class: "ring-gray-900/5"}
+                          %a.block.w-full.py-2.px-3.space-x-2.text-gray-900.hover:bg-gray-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/782302d6-a87b-4347-a77b-bbcc70c106ab/edit"}
+                            %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                              %path{d: "M12 20h9"}
+                              %path{d: "M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"}
+                              %path{d: "m15 5 3 3"}
+                            %span Edit category
+                          %a.block.w-full.py-2.px-3.space-x-2.text-red-600.hover:bg-red-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/782302d6-a87b-4347-a77b-bbcc70c106ab/deletions/new"}
+                            %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                              %path{d: "M3 6h18"}
+                              %path{d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"}
+                              %path{d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"}
+                              %line{x1: "10", x2: "10", y1: "11", y2: "17"}
+                              %line{x1: "14", x2: "14", y1: "11", y2: "17"}
+                            %span Delete category
+                  / END app/views/transactions/categories/dropdown/_row.html.erb
+                  / BEGIN app/views/transactions/categories/dropdown/_row.html.erb
+                  .filterable-item.flex.justify-between.items-center.border-none.rounded-lg.px-2.py-1.group.w-full{"data-filter-name" => "Personal Care"}
+                    %form.button_to{action: "/transactions/49938aef-4962-493a-a1f9-f0de854930c0?transaction%5Bcategory_id%5D=05b8be5e-0bae-4402-989b-3d68a7b8cbe9", method: "post"}
+                      %input{autocomplete: "off", name: "_method", type: "hidden", value: "patch"}/
+                      %button.flex.w-full.items-center.cursor-pointer{class: "gap-1.5", type: "submit"}
+                        %span.w-5.h-5
+                        / BEGIN app/views/transactions/categories/_badge.html.erb
+                        %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #db5a54 5%, white);\r\n    border-color: color-mix(in srgb, #db5a54 10%, white);\r\n    color: #db5a54;"}
+                          Personal Care
+                        / END app/views/transactions/categories/_badge.html.erb
+                      %input{autocomplete: "off", name: "authenticity_token", type: "hidden", value: "350U9WfyhV6YF9hHh5fc1F-uX48PDN9c7QTs0EqeW2WyMvR-F2DUpEmYFLaSw0oiKWExZdyWsGIhi8P7hS1p7A"}/
+                    .relative.cursor-pointer{"data-controller" => "menu"}
+                      %button.flex.hover:bg-gray-100.p-2.rounded{"data-menu-target" => "button"}
+                        %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %circle{cx: "12", cy: "12", r: "1"}
+                          %circle{cx: "19", cy: "12", r: "1"}
+                          %circle{cx: "5", cy: "12", r: "1"}
+                      .absolute.z-10.top-10.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs.hidden{"data-menu-target" => "content"}
+                        .w-48.p-1.text-sm.leading-6.text-gray-900.bg-white.shadow-lg.shrink.rounded-xl.ring-1{class: "ring-gray-900/5"}
+                          %a.block.w-full.py-2.px-3.space-x-2.text-gray-900.hover:bg-gray-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/05b8be5e-0bae-4402-989b-3d68a7b8cbe9/edit"}
+                            %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                              %path{d: "M12 20h9"}
+                              %path{d: "M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"}
+                              %path{d: "m15 5 3 3"}
+                            %span Edit category
+                          %a.block.w-full.py-2.px-3.space-x-2.text-red-600.hover:bg-red-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/05b8be5e-0bae-4402-989b-3d68a7b8cbe9/deletions/new"}
+                            %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                              %path{d: "M3 6h18"}
+                              %path{d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"}
+                              %path{d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"}
+                              %line{x1: "10", x2: "10", y1: "11", y2: "17"}
+                              %line{x1: "14", x2: "14", y1: "11", y2: "17"}
+                            %span Delete category
+                  / END app/views/transactions/categories/dropdown/_row.html.erb
+                  / BEGIN app/views/transactions/categories/dropdown/_row.html.erb
+                  .filterable-item.flex.justify-between.items-center.border-none.rounded-lg.px-2.py-1.group.w-full{"data-filter-name" => "General Services"}
+                    %form.button_to{action: "/transactions/49938aef-4962-493a-a1f9-f0de854930c0?transaction%5Bcategory_id%5D=b7095df9-1beb-48ba-a3bc-a592e8fdc050", method: "post"}
+                      %input{autocomplete: "off", name: "_method", type: "hidden", value: "patch"}/
+                      %button.flex.w-full.items-center.cursor-pointer{class: "gap-1.5", type: "submit"}
+                        %span.w-5.h-5
+                        / BEGIN app/views/transactions/categories/_badge.html.erb
+                        %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #df4e92 5%, white);\r\n    border-color: color-mix(in srgb, #df4e92 10%, white);\r\n    color: #df4e92;"}
+                          General Services
+                        / END app/views/transactions/categories/_badge.html.erb
+                      %input{autocomplete: "off", name: "authenticity_token", type: "hidden", value: "Ls0bvyPEH-Ap2QaeR9-UIgximMOrB4pH5ab0tDyNJndDYvs0U1ZOGvhWym9SiwLUeq32KXid5XkpKduf8z4U_g"}/
+                    .relative.cursor-pointer{"data-controller" => "menu"}
+                      %button.flex.hover:bg-gray-100.p-2.rounded{"data-menu-target" => "button"}
+                        %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %circle{cx: "12", cy: "12", r: "1"}
+                          %circle{cx: "19", cy: "12", r: "1"}
+                          %circle{cx: "5", cy: "12", r: "1"}
+                      .absolute.z-10.top-10.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs.hidden{"data-menu-target" => "content"}
+                        .w-48.p-1.text-sm.leading-6.text-gray-900.bg-white.shadow-lg.shrink.rounded-xl.ring-1{class: "ring-gray-900/5"}
+                          %a.block.w-full.py-2.px-3.space-x-2.text-gray-900.hover:bg-gray-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/b7095df9-1beb-48ba-a3bc-a592e8fdc050/edit"}
+                            %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                              %path{d: "M12 20h9"}
+                              %path{d: "M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"}
+                              %path{d: "m15 5 3 3"}
+                            %span Edit category
+                          %a.block.w-full.py-2.px-3.space-x-2.text-red-600.hover:bg-red-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/b7095df9-1beb-48ba-a3bc-a592e8fdc050/deletions/new"}
+                            %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                              %path{d: "M3 6h18"}
+                              %path{d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"}
+                              %path{d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"}
+                              %line{x1: "10", x2: "10", y1: "11", y2: "17"}
+                              %line{x1: "14", x2: "14", y1: "11", y2: "17"}
+                            %span Delete category
+                  / END app/views/transactions/categories/dropdown/_row.html.erb
+                  / BEGIN app/views/transactions/categories/dropdown/_row.html.erb
+                  .filterable-item.flex.justify-between.items-center.border-none.rounded-lg.px-2.py-1.group.w-full{"data-filter-name" => "Rent & Utilities"}
+                    %form.button_to{action: "/transactions/49938aef-4962-493a-a1f9-f0de854930c0?transaction%5Bcategory_id%5D=97f31769-dceb-41e3-b5e4-870a1ce7b54d", method: "post"}
+                      %input{autocomplete: "off", name: "_method", type: "hidden", value: "patch"}/
+                      %button.flex.w-full.items-center.cursor-pointer{class: "gap-1.5", type: "submit"}
+                        %span.w-5.h-5
+                        / BEGIN app/views/transactions/categories/_badge.html.erb
+                        %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #eb5429 5%, white);\r\n    border-color: color-mix(in srgb, #eb5429 10%, white);\r\n    color: #eb5429;"}
+                          Rent &amp; Utilities
+                        / END app/views/transactions/categories/_badge.html.erb
+                      %input{autocomplete: "off", name: "authenticity_token", type: "hidden", value: "eisUqK94LUf1nOBH9YotRGkVa0VPWl6KKo7PwSVAMREXhPQj3-p8vSQTLLbg3ruyH9oFr5zAMbTmAeDq6vMDmA"}/
+                    .relative.cursor-pointer{"data-controller" => "menu"}
+                      %button.flex.hover:bg-gray-100.p-2.rounded{"data-menu-target" => "button"}
+                        %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %circle{cx: "12", cy: "12", r: "1"}
+                          %circle{cx: "19", cy: "12", r: "1"}
+                          %circle{cx: "5", cy: "12", r: "1"}
+                      .absolute.z-10.top-10.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs.hidden{"data-menu-target" => "content"}
+                        .w-48.p-1.text-sm.leading-6.text-gray-900.bg-white.shadow-lg.shrink.rounded-xl.ring-1{class: "ring-gray-900/5"}
+                          %a.block.w-full.py-2.px-3.space-x-2.text-gray-900.hover:bg-gray-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/97f31769-dceb-41e3-b5e4-870a1ce7b54d/edit"}
+                            %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                              %path{d: "M12 20h9"}
+                              %path{d: "M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"}
+                              %path{d: "m15 5 3 3"}
+                            %span Edit category
+                          %a.block.w-full.py-2.px-3.space-x-2.text-red-600.hover:bg-red-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/97f31769-dceb-41e3-b5e4-870a1ce7b54d/deletions/new"}
+                            %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                              %path{d: "M3 6h18"}
+                              %path{d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"}
+                              %path{d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"}
+                              %line{x1: "10", x2: "10", y1: "11", y2: "17"}
+                              %line{x1: "14", x2: "14", y1: "11", y2: "17"}
+                            %span Delete category
+                  / END app/views/transactions/categories/dropdown/_row.html.erb
+                  / BEGIN app/views/transactions/categories/dropdown/_row.html.erb
+                  .filterable-item.flex.justify-between.items-center.border-none.rounded-lg.px-2.py-1.group.w-full{"data-filter-name" => "Income"}
+                    %form.button_to{action: "/transactions/49938aef-4962-493a-a1f9-f0de854930c0?transaction%5Bcategory_id%5D=ae19820c-c72b-411f-b49d-4f484d931f0a", method: "post"}
+                      %input{autocomplete: "off", name: "_method", type: "hidden", value: "patch"}/
+                      %button.flex.w-full.items-center.cursor-pointer{class: "gap-1.5", type: "submit"}
+                        %span.w-5.h-5
+                        / BEGIN app/views/transactions/categories/_badge.html.erb
+                        %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #e99537 5%, white);\r\n    border-color: color-mix(in srgb, #e99537 10%, white);\r\n    color: #e99537;"}
+                          Income
+                        / END app/views/transactions/categories/_badge.html.erb
+                      %input{autocomplete: "off", name: "authenticity_token", type: "hidden", value: "wKdpDkex1gp-R35oRjH7eUQn15BDTSmA55fhrICmLUOtCImFNyOH8K_IsplTZW2PMui5epDXRr4rGM6HTxUfyg"}/
+                    .relative.cursor-pointer{"data-controller" => "menu"}
+                      %button.flex.hover:bg-gray-100.p-2.rounded{"data-menu-target" => "button"}
+                        %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %circle{cx: "12", cy: "12", r: "1"}
+                          %circle{cx: "19", cy: "12", r: "1"}
+                          %circle{cx: "5", cy: "12", r: "1"}
+                      .absolute.z-10.top-10.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs.hidden{"data-menu-target" => "content"}
+                        .w-48.p-1.text-sm.leading-6.text-gray-900.bg-white.shadow-lg.shrink.rounded-xl.ring-1{class: "ring-gray-900/5"}
+                          %a.block.w-full.py-2.px-3.space-x-2.text-gray-900.hover:bg-gray-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/ae19820c-c72b-411f-b49d-4f484d931f0a/edit"}
+                            %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                              %path{d: "M12 20h9"}
+                              %path{d: "M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"}
+                              %path{d: "m15 5 3 3"}
+                            %span Edit category
+                          %a.block.w-full.py-2.px-3.space-x-2.text-red-600.hover:bg-red-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/ae19820c-c72b-411f-b49d-4f484d931f0a/deletions/new"}
+                            %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                              %path{d: "M3 6h18"}
+                              %path{d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"}
+                              %path{d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"}
+                              %line{x1: "10", x2: "10", y1: "11", y2: "17"}
+                              %line{x1: "14", x2: "14", y1: "11", y2: "17"}
+                            %span Delete category
+                  / END app/views/transactions/categories/dropdown/_row.html.erb
+                  / BEGIN app/views/transactions/categories/dropdown/_row.html.erb
+                  .filterable-item.flex.justify-between.items-center.border-none.rounded-lg.px-2.py-1.group.w-full{"data-filter-name" => "Home Improvement"}
+                    %form.button_to{action: "/transactions/49938aef-4962-493a-a1f9-f0de854930c0?transaction%5Bcategory_id%5D=fe8a67ae-5753-45ad-a1bd-d85d2441c894", method: "post"}
+                      %input{autocomplete: "off", name: "_method", type: "hidden", value: "patch"}/
+                      %button.flex.w-full.items-center.cursor-pointer{class: "gap-1.5", type: "submit"}
+                        %span.w-5.h-5
+                        / BEGIN app/views/transactions/categories/_badge.html.erb
+                        %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #61c9ea 5%, white);\r\n    border-color: color-mix(in srgb, #61c9ea 10%, white);\r\n    color: #61c9ea;"}
+                          Home Improvement
+                        / END app/views/transactions/categories/_badge.html.erb
+                      %input{autocomplete: "off", name: "authenticity_token", type: "hidden", value: "Y5tG0yWr5W1wGV9bSzsl79eDBiAP3auUWX8qCvFUqB8ONKZYVTm0l6GWk6peb7MZoUxoytxHxKqV8AUhPuealg"}/
+                    .relative.cursor-pointer{"data-controller" => "menu"}
+                      %button.flex.hover:bg-gray-100.p-2.rounded{"data-menu-target" => "button"}
+                        %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %circle{cx: "12", cy: "12", r: "1"}
+                          %circle{cx: "19", cy: "12", r: "1"}
+                          %circle{cx: "5", cy: "12", r: "1"}
+                      .absolute.z-10.top-10.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs.hidden{"data-menu-target" => "content"}
+                        .w-48.p-1.text-sm.leading-6.text-gray-900.bg-white.shadow-lg.shrink.rounded-xl.ring-1{class: "ring-gray-900/5"}
+                          %a.block.w-full.py-2.px-3.space-x-2.text-gray-900.hover:bg-gray-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/fe8a67ae-5753-45ad-a1bd-d85d2441c894/edit"}
+                            %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                              %path{d: "M12 20h9"}
+                              %path{d: "M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"}
+                              %path{d: "m15 5 3 3"}
+                            %span Edit category
+                          %a.block.w-full.py-2.px-3.space-x-2.text-red-600.hover:bg-red-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/fe8a67ae-5753-45ad-a1bd-d85d2441c894/deletions/new"}
+                            %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                              %path{d: "M3 6h18"}
+                              %path{d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"}
+                              %path{d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"}
+                              %line{x1: "10", x2: "10", y1: "11", y2: "17"}
+                              %line{x1: "14", x2: "14", y1: "11", y2: "17"}
+                            %span Delete category
+                  / END app/views/transactions/categories/dropdown/_row.html.erb
+                %hr/
+                .relative.w-full{class: "p-1.5"}
+                  %a.flex.text-sm.font-medium.items-center.gap-2.text-gray-500.w-full.rounded-lg.p-2.hover:bg-gray-100{"data-turbo-frame" => "modal", href: "/transactions/categories/new?transaction_id=49938aef-4962-493a-a1f9-f0de854930c0"}
+                    %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                      %path{d: "M5 12h14"}
+                      %path{d: "M12 5v14"}
+                    Add new
+                  %form.button_to{action: "/transactions/49938aef-4962-493a-a1f9-f0de854930c0", method: "post"}
+                    %input{autocomplete: "off", name: "_method", type: "hidden", value: "patch"}/
+                    %button.flex.text-sm.font-medium.items-center.gap-2.text-gray-500.w-full.rounded-lg.p-2.hover:bg-gray-100{type: "submit"}
+                      %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                        %path{d: "M5 12h14"}
+                      Clear
+                    %input{autocomplete: "off", name: "authenticity_token", type: "hidden", value: "EppHiCvvYq48_a-e5IH9EQ6m_YMvqyLGPHJzx369iNh_NacDW30zVO1yY2_x1WvneGmTafwxTfjw_VzssQ66UQ"}/
+                    %input{autocomplete: "off", name: "transaction[category_id]", type: "hidden"}/
+        / END app/views/transactions/categories/_menu.html.erb
+      %div
+        %p Main
+      .ml-auto
+        %p.whitespace-nowrap -$40,000.00
+    / END app/views/transactions/_transaction.html.erb

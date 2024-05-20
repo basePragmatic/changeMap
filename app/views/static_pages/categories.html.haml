@@ -1,0 +1,399 @@
+%body.h-full{"cz-shortcut-listen" => "true"}
+  #notification-tray.fixed.z-50.space-y-1.top-6.right-6
+  .flex.h-full
+    .p-6.pb-20.shrink-0.h-full.overflow-y-auto{class: "w-[368px]"}
+      / BEGIN app/views/settings/_nav.html.erb
+      .flex.items-center.gap-1.mb-6
+        %a.flex.items-center.gap-1.text-gray-900.font-medium.text-sm{href: "/"}
+          %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+            %path{d: "m15 18-6-6 6-6"}
+          %span Back
+        %span.uppercase.bg-gray-100.rounded-sm.px-1.text-xs.text-gray-500.shadow-sm.ml-1{class: "py-0.5", "data-action" => "hotkey#navigateBack", "data-controller" => "hotkey", "data-hotkey" => "Escape"}
+          esc
+      %nav.space-y-4
+        %section.space-y-2
+          .flex.items-center.gap-2
+            %h3.uppercase.text-gray-500.font-medium.text-xs General
+            .h-px.bg-alpha-black-100.w-full
+          %ul.space-y-1
+            %li
+              %a.flex.items-center.gap-2.px-3.py-2.rounded-xl.border.text-sm.font-medium.text-gray-500.hover:bg-gray-100.border-transparent{href: "/settings/profile", icon: "circle-user"}
+                %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}>
+                  %circle{cx: "12", cy: "12", r: "10"}
+                  %circle{cx: "12", cy: "10", r: "3"}
+                  %path{d: "M7 20.662V19a2 2 0 0 1 2-2h6a2 2 0 0 1 2 2v1.662"}
+                Account
+            %li
+              %a.flex.items-center.gap-2.px-3.py-2.rounded-xl.border.text-sm.font-medium.text-gray-500.hover:bg-gray-100.border-transparent{href: "/settings/preferences", icon: "bolt"}
+                %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}>
+                  %path{d: "M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"}
+                  %circle{cx: "12", cy: "12", r: "4"}
+                Preferences
+            %li
+              %a.flex.items-center.gap-2.px-3.py-2.rounded-xl.border.text-sm.font-medium.text-gray-500.hover:bg-gray-100.border-transparent{href: "/settings/notifications", icon: "bell-dot"}
+                %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}>
+                  %path{d: "M19.4 14.9C20.2 16.4 21 17 21 17H3s3-2 3-9c0-3.3 2.7-6 6-6 .7 0 1.3.1 1.9.3"}
+                  %path{d: "M10.3 21a1.94 1.94 0 0 0 3.4 0"}
+                  %circle{cx: "18", cy: "8", r: "3"}
+                Notifications
+            %li
+              %a.flex.items-center.gap-2.px-3.py-2.rounded-xl.border.text-sm.font-medium.text-gray-500.hover:bg-gray-100.border-transparent{href: "/settings/security", icon: "shield-check"}
+                %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}>
+                  %path{d: "M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10"}
+                  %path{d: "m9 12 2 2 4-4"}
+                Security
+            %li
+              %a.flex.items-center.gap-2.px-3.py-2.rounded-xl.border.text-sm.font-medium.text-gray-500.hover:bg-gray-100.border-transparent{href: "/settings/billing", icon: "circle-dollar-sign"}
+                %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}>
+                  %circle{cx: "12", cy: "12", r: "10"}
+                  %path{d: "M16 8h-6a2 2 0 1 0 0 4h4a2 2 0 1 1 0 4H8"}
+                  %path{d: "M12 18V6"}
+                Billing
+            %li
+              %a.flex.items-center.gap-2.px-3.py-2.rounded-xl.border.text-sm.font-medium.text-gray-500.hover:bg-gray-100.border-transparent{href: "/accounts", icon: "layers"}
+                %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}>
+                  %path{d: "m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"}
+                  %path{d: "m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"}
+                  %path{d: "m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"}
+                Accounts
+        %section.space-y-2
+          .flex.items-center.gap-2
+            %h3.uppercase.text-gray-500.font-medium.text-xs Transactions
+            .h-px.bg-alpha-black-100.w-full
+          %ul.space-y-1
+            %li
+              %a.flex.items-center.gap-2.px-3.py-2.rounded-xl.border.text-sm.font-medium.text-gray-500.bg-white.text-gray-900.shadow-xs.border-alpha-black-50{"aria-current" => "page", href: "/transactions/categories", icon: "tags"}
+                %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}>
+                  %path{d: "m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19"}
+                  %path{d: "M9.586 5.586A2 2 0 0 0 8.172 5H3a1 1 0 0 0-1 1v5.172a2 2 0 0 0 .586 1.414L8.29 18.29a2.426 2.426 0 0 0 3.42 0l3.58-3.58a2.426 2.426 0 0 0 0-3.42z"}
+                  %circle{cx: "6.5", cy: "9.5", fill: "currentColor", r: ".5"}
+                Categories
+            %li
+              %a.flex.items-center.gap-2.px-3.py-2.rounded-xl.border.text-sm.font-medium.text-gray-500.hover:bg-gray-100.border-transparent{href: "/transactions/merchants", icon: "store"}
+                %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}>
+                  %path{d: "m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"}
+                  %path{d: "M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"}
+                  %path{d: "M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"}
+                  %path{d: "M2 7h20"}
+                  %path{d: "M22 7v3a2 2 0 0 1-2 2v0a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12v0a2 2 0 0 1-2-2V7"}
+                Merchants
+            %li
+              %a.flex.items-center.gap-2.px-3.py-2.rounded-xl.border.text-sm.font-medium.text-gray-500.hover:bg-gray-100.border-transparent{href: "/transactions/rules", icon: "list-checks"}
+                %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}>
+                  %path{d: "m3 17 2 2 4-4"}
+                  %path{d: "m3 7 2 2 4-4"}
+                  %path{d: "M13 6h8"}
+                  %path{d: "M13 12h8"}
+                  %path{d: "M13 18h8"}
+                Rules
+        %section.space-y-2
+          .flex.items-center.gap-2
+            %h3.uppercase.text-gray-500.font-medium.text-xs More
+            .h-px.bg-alpha-black-100.w-full
+          %ul.space-y-1
+            %li
+              %a.flex.items-center.gap-2.px-3.py-2.rounded-xl.border.text-sm.font-medium.text-gray-500.hover:bg-gray-100.border-transparent{href: "/changelog", icon: "box"}
+                %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}>
+                  %path{d: "M21 8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16Z"}
+                  %path{d: "m3.3 7 8.7 5 8.7-5"}
+                  %path{d: "M12 22V12"}
+                What's New
+              %a.flex.items-center.gap-2.px-3.py-2.rounded-xl.border.text-sm.font-medium.text-gray-500.hover:bg-gray-100.border-transparent{href: "/feedback", icon: "megaphone"}
+                %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}>
+                  %path{d: "m3 11 18-5v12L3 14v-3z"}
+                  %path{d: "M11.6 16.8a3 3 0 1 1-5.8-1.6"}
+                Feedback
+              %a.flex.items-center.gap-2.px-3.py-2.rounded-xl.border.text-sm.font-medium.text-gray-500.hover:bg-gray-100.border-transparent{href: "/invites", icon: "gift"}
+                %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}>
+                  %rect{height: "4", rx: "1", width: "18", x: "3", y: "8"}
+                  %path{d: "M12 8v13"}
+                  %path{d: "M19 12v7a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2v-7"}
+                  %path{d: "M7.5 8a2.5 2.5 0 0 1 0-5A4.8 8 0 0 1 12 8a4.8 8 0 0 1 4.5-5 2.5 2.5 0 0 1 0 5"}
+                Invite friends
+      / END app/views/settings/_nav.html.erb
+    %main.grow.px-20.pt-6.pb-32.h-full.overflow-y-auto
+      / BEGIN app/views/transactions/categories/index.html.erb
+      %section.space-y-4
+        %header.flex.items-center.justify-between
+          %h1.text-gray-900.text-xl.font-medium Categories
+          %a.rounded-lg.bg-gray-900.text-white.flex.items-center.gap-1.justify-center.hover:bg-gray-700.px-3.py-2{"data-turbo-frame" => "modal", href: "/transactions/categories/new"}
+            %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+              %path{d: "M5 12h14"}
+              %path{d: "M12 5v14"}
+            %p New
+        .bg-white.shadow-xs.border.border-alpha-black-25.rounded-xl.p-4
+          .rounded-xl.bg-gray-25.p-1
+            %h2.uppercase.px-4.py-2.text-gray-500.text-xs Categories · 8
+            .border.border-alpha-gray-100.rounded-lg.bg-white.shadow-xs
+              / BEGIN app/views/transactions/categories/_row.html.erb
+              .flex.justify-between.mx-4.py-5.border-b.last:border-b-0.border-alpha-black-50
+                / BEGIN app/views/transactions/categories/_badge.html.erb
+                %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #c44fe9 5%, white);\r\n    border-color: color-mix(in srgb, #c44fe9 10%, white);\r\n    color: #c44fe9;"}
+                  Auto &amp; Transport
+                / END app/views/transactions/categories/_badge.html.erb
+                .relative.cursor-pointer{"data-controller" => "menu"}
+                  %button.flex.hover:bg-gray-100.p-2.rounded{"data-menu-target" => "button"}
+                    %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                      %circle{cx: "12", cy: "12", r: "1"}
+                      %circle{cx: "19", cy: "12", r: "1"}
+                      %circle{cx: "5", cy: "12", r: "1"}
+                  .absolute.z-10.top-10.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs.hidden{"data-menu-target" => "content"}
+                    .w-48.p-1.text-sm.leading-6.text-gray-900.bg-white.shadow-lg.shrink.rounded-xl.ring-1{class: "ring-gray-900/5"}
+                      %a.block.w-full.py-2.px-3.space-x-2.text-gray-900.hover:bg-gray-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/1be92cab-c523-4b38-8982-014c8e8136a9/edit"}
+                        %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M12 20h9"}
+                          %path{d: "M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"}
+                          %path{d: "m15 5 3 3"}
+                        %span Edit category
+                      %a.block.w-full.py-2.px-3.space-x-2.text-red-600.hover:bg-red-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/1be92cab-c523-4b38-8982-014c8e8136a9/deletions/new"}
+                        %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M3 6h18"}
+                          %path{d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"}
+                          %path{d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"}
+                          %line{x1: "10", x2: "10", y1: "11", y2: "17"}
+                          %line{x1: "14", x2: "14", y1: "11", y2: "17"}
+                        %span Delete category
+              / END app/views/transactions/categories/_row.html.erb
+              / BEGIN app/views/transactions/categories/_row.html.erb
+              .flex.justify-between.mx-4.py-5.border-b.last:border-b-0.border-alpha-black-50
+                / BEGIN app/views/transactions/categories/_badge.html.erb
+                %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #6471eb 5%, white);\r\n    border-color: color-mix(in srgb, #6471eb 10%, white);\r\n    color: #6471eb;"}
+                  Entertainment
+                / END app/views/transactions/categories/_badge.html.erb
+                .relative.cursor-pointer{"data-controller" => "menu"}
+                  %button.flex.hover:bg-gray-100.p-2.rounded{"data-menu-target" => "button"}
+                    %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                      %circle{cx: "12", cy: "12", r: "1"}
+                      %circle{cx: "19", cy: "12", r: "1"}
+                      %circle{cx: "5", cy: "12", r: "1"}
+                  .absolute.z-10.top-10.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs.hidden{"data-menu-target" => "content"}
+                    .w-48.p-1.text-sm.leading-6.text-gray-900.bg-white.shadow-lg.shrink.rounded-xl.ring-1{class: "ring-gray-900/5"}
+                      %a.block.w-full.py-2.px-3.space-x-2.text-gray-900.hover:bg-gray-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/782302d6-a87b-4347-a77b-bbcc70c106ab/edit"}
+                        %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M12 20h9"}
+                          %path{d: "M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"}
+                          %path{d: "m15 5 3 3"}
+                        %span Edit category
+                      %a.block.w-full.py-2.px-3.space-x-2.text-red-600.hover:bg-red-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/782302d6-a87b-4347-a77b-bbcc70c106ab/deletions/new"}
+                        %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M3 6h18"}
+                          %path{d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"}
+                          %path{d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"}
+                          %line{x1: "10", x2: "10", y1: "11", y2: "17"}
+                          %line{x1: "14", x2: "14", y1: "11", y2: "17"}
+                        %span Delete category
+              / END app/views/transactions/categories/_row.html.erb
+              / BEGIN app/views/transactions/categories/_row.html.erb
+              .flex.justify-between.mx-4.py-5.border-b.last:border-b-0.border-alpha-black-50
+                / BEGIN app/views/transactions/categories/_badge.html.erb
+                %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #4da568 5%, white);\r\n    border-color: color-mix(in srgb, #4da568 10%, white);\r\n    color: #4da568;"}
+                  Food &amp; Drink
+                / END app/views/transactions/categories/_badge.html.erb
+                .relative.cursor-pointer{"data-controller" => "menu"}
+                  %button.flex.hover:bg-gray-100.p-2.rounded{"data-menu-target" => "button"}
+                    %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                      %circle{cx: "12", cy: "12", r: "1"}
+                      %circle{cx: "19", cy: "12", r: "1"}
+                      %circle{cx: "5", cy: "12", r: "1"}
+                  .absolute.z-10.top-10.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs.hidden{"data-menu-target" => "content"}
+                    .w-48.p-1.text-sm.leading-6.text-gray-900.bg-white.shadow-lg.shrink.rounded-xl.ring-1{class: "ring-gray-900/5"}
+                      %a.block.w-full.py-2.px-3.space-x-2.text-gray-900.hover:bg-gray-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/e717621c-fc1e-4aa4-a50d-a76d17a9ca44/edit"}
+                        %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M12 20h9"}
+                          %path{d: "M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"}
+                          %path{d: "m15 5 3 3"}
+                        %span Edit category
+                      %a.block.w-full.py-2.px-3.space-x-2.text-red-600.hover:bg-red-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/e717621c-fc1e-4aa4-a50d-a76d17a9ca44/deletions/new"}
+                        %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M3 6h18"}
+                          %path{d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"}
+                          %path{d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"}
+                          %line{x1: "10", x2: "10", y1: "11", y2: "17"}
+                          %line{x1: "14", x2: "14", y1: "11", y2: "17"}
+                        %span Delete category
+              / END app/views/transactions/categories/_row.html.erb
+              / BEGIN app/views/transactions/categories/_row.html.erb
+              .flex.justify-between.mx-4.py-5.border-b.last:border-b-0.border-alpha-black-50
+                / BEGIN app/views/transactions/categories/_badge.html.erb
+                %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #df4e92 5%, white);\r\n    border-color: color-mix(in srgb, #df4e92 10%, white);\r\n    color: #df4e92;"}
+                  General Services
+                / END app/views/transactions/categories/_badge.html.erb
+                .relative.cursor-pointer{"data-controller" => "menu"}
+                  %button.flex.hover:bg-gray-100.p-2.rounded{"data-menu-target" => "button"}
+                    %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                      %circle{cx: "12", cy: "12", r: "1"}
+                      %circle{cx: "19", cy: "12", r: "1"}
+                      %circle{cx: "5", cy: "12", r: "1"}
+                  .absolute.z-10.top-10.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs.hidden{"data-menu-target" => "content"}
+                    .w-48.p-1.text-sm.leading-6.text-gray-900.bg-white.shadow-lg.shrink.rounded-xl.ring-1{class: "ring-gray-900/5"}
+                      %a.block.w-full.py-2.px-3.space-x-2.text-gray-900.hover:bg-gray-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/b7095df9-1beb-48ba-a3bc-a592e8fdc050/edit"}
+                        %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M12 20h9"}
+                          %path{d: "M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"}
+                          %path{d: "m15 5 3 3"}
+                        %span Edit category
+                      %a.block.w-full.py-2.px-3.space-x-2.text-red-600.hover:bg-red-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/b7095df9-1beb-48ba-a3bc-a592e8fdc050/deletions/new"}
+                        %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M3 6h18"}
+                          %path{d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"}
+                          %path{d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"}
+                          %line{x1: "10", x2: "10", y1: "11", y2: "17"}
+                          %line{x1: "14", x2: "14", y1: "11", y2: "17"}
+                        %span Delete category
+              / END app/views/transactions/categories/_row.html.erb
+              / BEGIN app/views/transactions/categories/_row.html.erb
+              .flex.justify-between.mx-4.py-5.border-b.last:border-b-0.border-alpha-black-50
+                / BEGIN app/views/transactions/categories/_badge.html.erb
+                %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #61c9ea 5%, white);\r\n    border-color: color-mix(in srgb, #61c9ea 10%, white);\r\n    color: #61c9ea;"}
+                  Home Improvement
+                / END app/views/transactions/categories/_badge.html.erb
+                .relative.cursor-pointer{"data-controller" => "menu"}
+                  %button.flex.hover:bg-gray-100.p-2.rounded{"data-menu-target" => "button"}
+                    %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                      %circle{cx: "12", cy: "12", r: "1"}
+                      %circle{cx: "19", cy: "12", r: "1"}
+                      %circle{cx: "5", cy: "12", r: "1"}
+                  .absolute.z-10.top-10.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs.hidden{"data-menu-target" => "content"}
+                    .w-48.p-1.text-sm.leading-6.text-gray-900.bg-white.shadow-lg.shrink.rounded-xl.ring-1{class: "ring-gray-900/5"}
+                      %a.block.w-full.py-2.px-3.space-x-2.text-gray-900.hover:bg-gray-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/fe8a67ae-5753-45ad-a1bd-d85d2441c894/edit"}
+                        %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M12 20h9"}
+                          %path{d: "M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"}
+                          %path{d: "m15 5 3 3"}
+                        %span Edit category
+                      %a.block.w-full.py-2.px-3.space-x-2.text-red-600.hover:bg-red-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/fe8a67ae-5753-45ad-a1bd-d85d2441c894/deletions/new"}
+                        %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M3 6h18"}
+                          %path{d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"}
+                          %path{d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"}
+                          %line{x1: "10", x2: "10", y1: "11", y2: "17"}
+                          %line{x1: "14", x2: "14", y1: "11", y2: "17"}
+                        %span Delete category
+              / END app/views/transactions/categories/_row.html.erb
+              / BEGIN app/views/transactions/categories/_row.html.erb
+              .flex.justify-between.mx-4.py-5.border-b.last:border-b-0.border-alpha-black-50
+                / BEGIN app/views/transactions/categories/_badge.html.erb
+                %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #e99537 5%, white);\r\n    border-color: color-mix(in srgb, #e99537 10%, white);\r\n    color: #e99537;"}
+                  Income
+                / END app/views/transactions/categories/_badge.html.erb
+                .relative.cursor-pointer{"data-controller" => "menu"}
+                  %button.flex.hover:bg-gray-100.p-2.rounded{"data-menu-target" => "button"}
+                    %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                      %circle{cx: "12", cy: "12", r: "1"}
+                      %circle{cx: "19", cy: "12", r: "1"}
+                      %circle{cx: "5", cy: "12", r: "1"}
+                  .absolute.z-10.top-10.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs.hidden{"data-menu-target" => "content"}
+                    .w-48.p-1.text-sm.leading-6.text-gray-900.bg-white.shadow-lg.shrink.rounded-xl.ring-1{class: "ring-gray-900/5"}
+                      %a.block.w-full.py-2.px-3.space-x-2.text-gray-900.hover:bg-gray-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/ae19820c-c72b-411f-b49d-4f484d931f0a/edit"}
+                        %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M12 20h9"}
+                          %path{d: "M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"}
+                          %path{d: "m15 5 3 3"}
+                        %span Edit category
+                      %a.block.w-full.py-2.px-3.space-x-2.text-red-600.hover:bg-red-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/ae19820c-c72b-411f-b49d-4f484d931f0a/deletions/new"}
+                        %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M3 6h18"}
+                          %path{d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"}
+                          %path{d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"}
+                          %line{x1: "10", x2: "10", y1: "11", y2: "17"}
+                          %line{x1: "14", x2: "14", y1: "11", y2: "17"}
+                        %span Delete category
+              / END app/views/transactions/categories/_row.html.erb
+              / BEGIN app/views/transactions/categories/_row.html.erb
+              .flex.justify-between.mx-4.py-5.border-b.last:border-b-0.border-alpha-black-50
+                / BEGIN app/views/transactions/categories/_badge.html.erb
+                %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #db5a54 5%, white);\r\n    border-color: color-mix(in srgb, #db5a54 10%, white);\r\n    color: #db5a54;"}
+                  Personal Care
+                / END app/views/transactions/categories/_badge.html.erb
+                .relative.cursor-pointer{"data-controller" => "menu"}
+                  %button.flex.hover:bg-gray-100.p-2.rounded{"data-menu-target" => "button"}
+                    %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                      %circle{cx: "12", cy: "12", r: "1"}
+                      %circle{cx: "19", cy: "12", r: "1"}
+                      %circle{cx: "5", cy: "12", r: "1"}
+                  .absolute.z-10.top-10.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs.hidden{"data-menu-target" => "content"}
+                    .w-48.p-1.text-sm.leading-6.text-gray-900.bg-white.shadow-lg.shrink.rounded-xl.ring-1{class: "ring-gray-900/5"}
+                      %a.block.w-full.py-2.px-3.space-x-2.text-gray-900.hover:bg-gray-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/05b8be5e-0bae-4402-989b-3d68a7b8cbe9/edit"}
+                        %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M12 20h9"}
+                          %path{d: "M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"}
+                          %path{d: "m15 5 3 3"}
+                        %span Edit category
+                      %a.block.w-full.py-2.px-3.space-x-2.text-red-600.hover:bg-red-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/05b8be5e-0bae-4402-989b-3d68a7b8cbe9/deletions/new"}
+                        %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M3 6h18"}
+                          %path{d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"}
+                          %path{d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"}
+                          %line{x1: "10", x2: "10", y1: "11", y2: "17"}
+                          %line{x1: "14", x2: "14", y1: "11", y2: "17"}
+                        %span Delete category
+              / END app/views/transactions/categories/_row.html.erb
+              / BEGIN app/views/transactions/categories/_row.html.erb
+              .flex.justify-between.mx-4.py-5.border-b.last:border-b-0.border-alpha-black-50
+                / BEGIN app/views/transactions/categories/_badge.html.erb
+                %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #eb5429 5%, white);\r\n    border-color: color-mix(in srgb, #eb5429 10%, white);\r\n    color: #eb5429;"}
+                  Rent &amp; Utilities
+                / END app/views/transactions/categories/_badge.html.erb
+                .relative.cursor-pointer{"data-controller" => "menu"}
+                  %button.flex.hover:bg-gray-100.p-2.rounded{"data-menu-target" => "button"}
+                    %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                      %circle{cx: "12", cy: "12", r: "1"}
+                      %circle{cx: "19", cy: "12", r: "1"}
+                      %circle{cx: "5", cy: "12", r: "1"}
+                  .absolute.z-10.top-10.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs.hidden{"data-menu-target" => "content"}
+                    .w-48.p-1.text-sm.leading-6.text-gray-900.bg-white.shadow-lg.shrink.rounded-xl.ring-1{class: "ring-gray-900/5"}
+                      %a.block.w-full.py-2.px-3.space-x-2.text-gray-900.hover:bg-gray-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/97f31769-dceb-41e3-b5e4-870a1ce7b54d/edit"}
+                        %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M12 20h9"}
+                          %path{d: "M16.5 3.5a2.12 2.12 0 0 1 3 3L7 19l-4 1 1-4Z"}
+                          %path{d: "m15 5 3 3"}
+                        %span Edit category
+                      %a.block.w-full.py-2.px-3.space-x-2.text-red-600.hover:bg-red-50.flex.items-center.rounded-lg{"data-turbo-frame" => "modal", href: "/transactions/categories/97f31769-dceb-41e3-b5e4-870a1ce7b54d/deletions/new"}
+                        %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M3 6h18"}
+                          %path{d: "M19 6v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6"}
+                          %path{d: "M8 6V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"}
+                          %line{x1: "10", x2: "10", y1: "11", y2: "17"}
+                          %line{x1: "14", x2: "14", y1: "11", y2: "17"}
+                        %span Delete category
+              / END app/views/transactions/categories/_row.html.erb
+        %footer.flex.justify-between.gap-4
+          / BEGIN app/views/settings/_nav_link_large.html.erb
+          %a.w-full.bg-white.hover:bg-gray-50.rounded-xl.border.border-alpha-black-25.shadow-xs.p-4.flex.items-center.justify-between{href: "/accounts"}
+            .w-5.h-5.text-gray-500
+              %svg{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "m12 19-7-7 7-7"}
+                %path{d: "M19 12H5"}
+            .text-right
+              %span.block.text-sm.text-gray-500 Back
+              %span.block.text-sm.font-medium.text-gray-900 Accounts
+          / END app/views/settings/_nav_link_large.html.erb
+          / BEGIN app/views/settings/_nav_link_large.html.erb
+          %a.w-full.bg-white.hover:bg-gray-50.rounded-xl.border.border-alpha-black-25.shadow-xs.p-4.flex.items-center.justify-between{href: "/transactions/merchants"}
+            .flex-grow
+              %span.block.text-sm.text-gray-500 Next
+              %span.block.text-sm.font-medium.text-gray-900 Merchants
+            .w-5.h-5.text-gray-500
+              %svg{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "M5 12h14"}
+                %path{d: "m12 5 7 7-7 7"}
+          / END app/views/settings/_nav_link_large.html.erb
+      / END app/views/transactions/categories/index.html.erb
+  %turbo-frame#modal
+  / BEGIN app/views/shared/_confirm_modal.html.erb
+  %dialog#turbo-confirm.w-full.rounded-xl{class: "max-w-[420px]"}
+    %form.p-4{method: "dialog"}
+      .flex.flex-col.mb-4
+        .flex.justify-between.mb-2.gap-4
+          %h3#turbo-confirm-title.font-medium.text-md Are you sure?
+          %button{value: "cancel"}
+            %svg.w-5.h-5.shrink-0.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+              %path{d: "M18 6 6 18"}
+              %path{d: "m6 6 12 12"}
+        #turbo-confirm-body.text-gray-500.text-sm
+          %p You will not be able to undo this decision
+      %button#turbo-confirm-accept.w-full.text-red-600.rounded-xl.text-center.border.mb-2{class: "p-[10px]", value: "confirm"} Confirm
+      %button.w-full.rounded-xl.text-center.border{class: "p-[10px]", value: "cancel"} Cancel
+  / END app/views/shared/_confirm_modal.html.erb
+  / BEGIN app/views/shared/_upgrade_notification.html.erb
+  / END app/views/shared/_upgrade_notification.html.erb

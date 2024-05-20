@@ -1,0 +1,274 @@
+:ruby
+  transcations = [
+    {
+
+    }
+  ]
+
+#notification-tray.fixed.z-50.space-y-1.top-6.right-6
+.flex.h-full
+  = render partial: 'shared/sidebar'
+  %main.grow.px-20.pt-6.pb-32.h-full.overflow-y-auto
+    / BEGIN app/views/transactions/index.html.erb
+    .space-y-4
+      .flex.justify-between.items-center.text-gray-900.font-medium
+        %h1.text-xl Transactions
+        .flex.items-center.gap-5
+          .flex.items-center.gap-2
+            .relative.cursor-pointer{"data-controller" => "menu"}
+              %button.flex.hover:bg-gray-100.p-2.rounded{"data-menu-target" => "button"}
+                %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                  %circle{cx: "12", cy: "12", r: "1"}
+                  %circle{cx: "19", cy: "12", r: "1"}
+                  %circle{cx: "5", cy: "12", r: "1"}
+              .absolute.z-10.top-10.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs.hidden{"data-menu-target" => "content"}
+                .w-48.p-1.text-sm.leading-6.text-gray-900.bg-white.shadow-lg.shrink.rounded-xl.ring-1{class: "ring-gray-900/5"}
+                  %a.block.w-full.py-2.px-3.space-x-2.text-gray-900.hover:bg-gray-50.flex.items-center.rounded-lg.font-normal{href: "/transactions/categories"}
+                    %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                      %path{d: "m15 5 6.3 6.3a2.4 2.4 0 0 1 0 3.4L17 19"}
+                      %path{d: "M9.586 5.586A2 2 0 0 0 8.172 5H3a1 1 0 0 0-1 1v5.172a2 2 0 0 0 .586 1.414L8.29 18.29a2.426 2.426 0 0 0 3.42 0l3.58-3.58a2.426 2.426 0 0 0 0-3.42z"}
+                      %circle{cx: "6.5", cy: "9.5", fill: "currentColor", r: ".5"}
+                    %span.text-black Edit categories
+            %a.rounded-lg.bg-gray-900.text-white.flex.items-center.gap-1.justify-center.hover:bg-gray-700.px-3.py-2{"data-turbo-frame" => "modal", href: "/transactions/new"}
+              %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                %path{d: "M5 12h14"}
+                %path{d: "M12 5v14"}
+              %p New transaction
+      %div
+        / BEGIN app/views/transactions/_summary.html.erb
+        %turbo-frame#transactions_summary
+          .grid.grid-cols-3.bg-white.rounded-xl.border.border-alpha-black-25.shadow-xs.px-4.divide-x.divide-alpha-black-100
+            .p-4.space-y-2
+              %p.text-sm.text-gray-500 Total transactions
+              %p.text-gray-900.font-medium.text-xl 2
+            .p-4.space-y-2
+              %p.text-sm.text-gray-500 Income
+              %p.text-gray-900.font-medium.text-xl
+                $80,000.00
+            .p-4.space-y-2
+              %p.text-sm.text-gray-500 Expenses
+              %p.text-gray-900.font-medium.text-xl
+                $0.00
+        / END app/views/transactions/_summary.html.erb
+      #transactions.bg-white.rounded-xl.border.border-alpha-black-25.shadow-xs.p-4.space-y-4
+        / BEGIN app/views/transactions/_search_form.html.erb
+        %div
+          %turbo-frame#transactions_search_form
+            %form#transaction_search.transaction_search{"accept-charset" => "UTF-8", action: "/transactions/search", "data-turbo-frame" => "transactions_list", method: "post"}
+              %input{autocomplete: "off", name: "authenticity_token", type: "hidden", value: "cYoPmAEAnxR156cYGdCZJ_3TzNeMqfGsO39-EymDo1nGLAVh-37ZvaN8LWYOXLzn94h5TmDLKdBPs1BDGos_bQ"}/
+              .flex.gap-2.mb-4
+                .grow
+                  / BEGIN app/views/transactions/search_form/_search_filter.html.erb
+                  .relative.flex.items-center.bg-white.border.border-gray-200.rounded-lg
+                    %input#q_category_name_or_merchant_name_or_account_name_or_name_cont.placeholder:text-sm.placeholder:text-gray-500.relative.pl-10.w-full.border-none.rounded-lg{"data-auto-submit-form-target" => "auto", name: "q[category_name_or_merchant_name_or_account_name_or_name_cont]", placeholder: "Search transaction by name, merchant, category or amount", type: "search"}/
+                    %svg.w-5.h-5.text-gray-500.ml-2.absolute.inset-0.transform{"aria-hidden" => "true", class: "top-1/2 -translate-y-1/2", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                      %circle{cx: "11", cy: "11", r: "8"}
+                      %path{d: "m21 21-4.3-4.3"}
+                  / END app/views/transactions/search_form/_search_filter.html.erb
+                .relative{"data-controller" => "menu"}
+                  %button.border.border-gray-200.block.h-full.rounded-lg.flex.items-center.gap-2.px-4{"data-menu-target" => "button", type: "button"}
+                    %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                      %path{d: "M3 6h18"}
+                      %path{d: "M7 12h10"}
+                      %path{d: "M10 18h4"}
+                    %p.text-sm.font-medium.text-gray-900 Filter
+                  .hidden.absolute.flex.z-10.h-80.top-12.right-0.border.border-alpha-black-25.bg-white.rounded-lg.shadow-xs{class: "w-[540px]", "data-controller" => "tabs", "data-menu-target" => "content", "data-tabs-active-class" => "bg-gray-25 text-gray-900", "data-tabs-default-tab-value" => "txn-account-filter"}
+                    .flex.w-44.flex-col.items-start.p-3.text-sm.font-medium.text-gray-500.border-r.border-r-alpha-black-25
+                      %button.flex.text-gray-500.hover:bg-gray-25.items-center.gap-2.px-3.rounded-md.py-2.w-full.bg-gray-25.text-gray-900{"data-action" => "tabs#select", "data-id" => "txn-account-filter", "data-tabs-target" => "btn", type: "button"}
+                        %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "m12.83 2.18a2 2 0 0 0-1.66 0L2.6 6.08a1 1 0 0 0 0 1.83l8.58 3.91a2 2 0 0 0 1.66 0l8.58-3.9a1 1 0 0 0 0-1.83Z"}
+                          %path{d: "m22 17.65-9.17 4.16a2 2 0 0 1-1.66 0L2 17.65"}
+                          %path{d: "m22 12.65-9.17 4.16a2 2 0 0 1-1.66 0L2 12.65"}
+                        %span.text-sm.font-medium Account
+                      %button.flex.text-gray-500.hover:bg-gray-25.items-center.gap-2.px-3.rounded-md.py-2.w-full{"data-action" => "tabs#select", "data-id" => "txn-date-filter", "data-tabs-target" => "btn", type: "button"}
+                        %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M8 2v4"}
+                          %path{d: "M16 2v4"}
+                          %rect{height: "18", rx: "2", width: "18", x: "3", y: "4"}
+                          %path{d: "M3 10h18"}
+                        %span.text-sm.font-medium Date
+                      %button.flex.text-gray-500.hover:bg-gray-25.items-center.gap-2.px-3.rounded-md.py-2.w-full{"data-action" => "tabs#select", "data-id" => "txn-type-filter", "data-tabs-target" => "btn", type: "button"}
+                        %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M8.3 10a.7.7 0 0 1-.626-1.079L11.4 3a.7.7 0 0 1 1.198-.043L16.3 8.9a.7.7 0 0 1-.572 1.1Z"}
+                          %rect{height: "7", rx: "1", width: "7", x: "3", y: "14"}
+                          %circle{cx: "17.5", cy: "17.5", r: "3.5"}
+                        %span.text-sm.font-medium Type
+                      %button.flex.text-gray-500.hover:bg-gray-25.items-center.gap-2.px-3.rounded-md.py-2.w-full{"data-action" => "tabs#select", "data-id" => "txn-amount-filter", "data-tabs-target" => "btn", type: "button"}
+                        %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %line{x1: "4", x2: "20", y1: "9", y2: "9"}
+                          %line{x1: "4", x2: "20", y1: "15", y2: "15"}
+                          %line{x1: "10", x2: "8", y1: "3", y2: "21"}
+                          %line{x1: "16", x2: "14", y1: "3", y2: "21"}
+                        %span.text-sm.font-medium Amount
+                      %button.flex.text-gray-500.hover:bg-gray-25.items-center.gap-2.px-3.rounded-md.py-2.w-full{"data-action" => "tabs#select", "data-id" => "txn-category-filter", "data-tabs-target" => "btn", type: "button"}
+                        %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "M12.586 2.586A2 2 0 0 0 11.172 2H4a2 2 0 0 0-2 2v7.172a2 2 0 0 0 .586 1.414l8.704 8.704a2.426 2.426 0 0 0 3.42 0l6.58-6.58a2.426 2.426 0 0 0 0-3.42z"}
+                          %circle{cx: "7.5", cy: "7.5", fill: "currentColor", r: ".5"}
+                        %span.text-sm.font-medium Category
+                      %button.flex.text-gray-500.hover:bg-gray-25.items-center.gap-2.px-3.rounded-md.py-2.w-full{"data-action" => "tabs#select", "data-id" => "txn-merchant-filter", "data-tabs-target" => "btn", type: "button"}
+                        %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                          %path{d: "m2 7 4.41-4.41A2 2 0 0 1 7.83 2h8.34a2 2 0 0 1 1.42.59L22 7"}
+                          %path{d: "M4 12v8a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2v-8"}
+                          %path{d: "M15 22v-4a2 2 0 0 0-2-2h-2a2 2 0 0 0-2 2v4"}
+                          %path{d: "M2 7h20"}
+                          %path{d: "M22 7v3a2 2 0 0 1-2 2v0a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 16 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 12 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 8 12a2.7 2.7 0 0 1-1.59-.63.7.7 0 0 0-.82 0A2.7 2.7 0 0 1 4 12v0a2 2 0 0 1-2-2V7"}
+                        %span.text-sm.font-medium Merchant
+                    .flex.flex-col.grow
+                      .grow.p-2.border-b.border-b-alpha-black-25.overflow-y-auto
+                        #txn-account-filter{"data-tabs-target" => "tab"}
+                          / BEGIN app/views/transactions/search_form/_account_filter.html.erb
+                          %div{"data-controller" => "list-filter"}
+                            .relative
+                              %input.block.w-full.border.border-gray-200.rounded-md.py-2.pl-10.pr-3.focus:border-indigo-500.focus:ring-indigo-500.sm:text-sm{autocomplete: "off", "data-action" => "input->list-filter#filter", "data-list-filter-target" => "input", placeholder: "Filter accounts", type: "search"}/
+                              %svg.w-5.h-5.text-gray-500.absolute.inset-y-0.left-2.transform{"aria-hidden" => "true", class: "top-1/2 -translate-y-1/2", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                                %circle{cx: "11", cy: "11", r: "8"}
+                                %path{d: "m21 21-4.3-4.3"}
+                            #list.my-2{"data-list-filter-target" => "list"}
+                              .filterable-item.flex.items-center.gap-2.p-2{"data-filter-name" => "Main"}
+                                %input#q_account_id_in_ab1b486d-ae26-49f6-b550-bbb0c9684877.rounded-sm.border-gray-300.text-indigo-600.shadow-xs.focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50{name: "q[account_id_in][]", type: "checkbox", value: "ab1b486d-ae26-49f6-b550-bbb0c9684877"}/
+                                %label.text-sm.text-gray-900{for: "q_account_id_in_ab1b486d-ae26-49f6-b550-bbb0c9684877"} Main
+                              .filterable-item.flex.items-center.gap-2.p-2{"data-filter-name" => "Person"}
+                                %input#q_account_id_in_9437e909-790e-4840-911b-4c734c95a547.rounded-sm.border-gray-300.text-indigo-600.shadow-xs.focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50{name: "q[account_id_in][]", type: "checkbox", value: "9437e909-790e-4840-911b-4c734c95a547"}/
+                                %label.text-sm.text-gray-900{for: "q_account_id_in_9437e909-790e-4840-911b-4c734c95a547"} Person
+                              .filterable-item.flex.items-center.gap-2.p-2{"data-filter-name" => "Credit"}
+                                %input#q_account_id_in_cbfc8bf2-7e24-4e1f-bf0b-406a0244e1bd.rounded-sm.border-gray-300.text-indigo-600.shadow-xs.focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50{name: "q[account_id_in][]", type: "checkbox", value: "cbfc8bf2-7e24-4e1f-bf0b-406a0244e1bd"}/
+                                %label.text-sm.text-gray-900{for: "q_account_id_in_cbfc8bf2-7e24-4e1f-bf0b-406a0244e1bd"} Credit
+                          / END app/views/transactions/search_form/_account_filter.html.erb
+                        #txn-date-filter.hidden{"data-tabs-target" => "tab"}
+                          / BEGIN app/views/transactions/search_form/_date_filter.html.erb
+                          .p-3
+                            %input#q_date_gteq.block.w-full.border.border-gray-200.rounded-md.py-2.pl-3.pr-3.focus:border-gray-500.focus:ring-gray-500.sm:text-sm{name: "q[date_gteq]", placeholder: "Start date", type: "date"}/
+                            %input#q_date_lteq.block.w-full.border.border-gray-200.rounded-md.py-2.pl-3.pr-3.focus:border-gray-500.focus:ring-gray-500.sm:text-sm.mt-2{name: "q[date_lteq]", placeholder: "End date", type: "date"}/
+                          / END app/views/transactions/search_form/_date_filter.html.erb
+                        #txn-type-filter.hidden{"data-tabs-target" => "tab"}
+                          / BEGIN app/views/transactions/search_form/_type_filter.html.erb
+                          .py-12.flex.items-center.justify-center
+                            %p.text-gray-500.text-sm Filter by type coming soon...
+                          / END app/views/transactions/search_form/_type_filter.html.erb
+                        #txn-amount-filter.hidden{"data-tabs-target" => "tab"}
+                          / BEGIN app/views/transactions/search_form/_amount_filter.html.erb
+                          .py-12.flex.items-center.justify-center
+                            %p.text-gray-500.text-sm Filter by amount coming soon...
+                          / END app/views/transactions/search_form/_amount_filter.html.erb
+                        #txn-category-filter.hidden{"data-tabs-target" => "tab"}
+                          / BEGIN app/views/transactions/search_form/_category_filter.html.erb
+                          %div{"data-controller" => "list-filter"}
+                            .relative
+                              %input.block.w-full.border.border-gray-200.rounded-md.py-2.pl-10.pr-3.focus:border-indigo-500.focus:ring-indigo-500.sm:text-sm{autocomplete: "off", "data-action" => "input->list-filter#filter", "data-list-filter-target" => "input", placeholder: "Filter category", type: "search"}/
+                              %svg.w-5.h-5.text-gray-500.absolute.inset-y-0.left-2.transform{"aria-hidden" => "true", class: "top-1/2 -translate-y-1/2", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                                %circle{cx: "11", cy: "11", r: "8"}
+                                %path{d: "m21 21-4.3-4.3"}
+                            #list.my-2{"data-list-filter-target" => "list"}
+                              .filterable-item.flex.items-center.gap-2.p-2{"data-filter-name" => "Income"}
+                                %input#q_category_id_in_ae19820c-c72b-411f-b49d-4f484d931f0a.rounded-sm.border-gray-300.text-indigo-600.shadow-xs.focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50{"data-auto-submit-form-target" => "auto", name: "q[category_id_in][]", type: "checkbox", value: "ae19820c-c72b-411f-b49d-4f484d931f0a"}/
+                                %label.text-sm.text-gray-900.cursor-pointer{for: "q_category_id_in_ae19820c-c72b-411f-b49d-4f484d931f0a"}
+                                  / BEGIN app/views/transactions/categories/_badge.html.erb
+                                  %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #e99537 5%, white);\r\n    border-color: color-mix(in srgb, #e99537 10%, white);\r\n    color: #e99537;"}
+                                    Income
+                                  / END app/views/transactions/categories/_badge.html.erb
+                              .filterable-item.flex.items-center.gap-2.p-2{"data-filter-name" => "Food & Drink"}
+                                %input#q_category_id_in_e717621c-fc1e-4aa4-a50d-a76d17a9ca44.rounded-sm.border-gray-300.text-indigo-600.shadow-xs.focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50{"data-auto-submit-form-target" => "auto", name: "q[category_id_in][]", type: "checkbox", value: "e717621c-fc1e-4aa4-a50d-a76d17a9ca44"}/
+                                %label.text-sm.text-gray-900.cursor-pointer{for: "q_category_id_in_e717621c-fc1e-4aa4-a50d-a76d17a9ca44"}
+                                  / BEGIN app/views/transactions/categories/_badge.html.erb
+                                  %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #4da568 5%, white);\r\n    border-color: color-mix(in srgb, #4da568 10%, white);\r\n    color: #4da568;"}
+                                    Food &amp; Drink
+                                  / END app/views/transactions/categories/_badge.html.erb
+                              .filterable-item.flex.items-center.gap-2.p-2{"data-filter-name" => "Entertainment"}
+                                %input#q_category_id_in_782302d6-a87b-4347-a77b-bbcc70c106ab.rounded-sm.border-gray-300.text-indigo-600.shadow-xs.focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50{"data-auto-submit-form-target" => "auto", name: "q[category_id_in][]", type: "checkbox", value: "782302d6-a87b-4347-a77b-bbcc70c106ab"}/
+                                %label.text-sm.text-gray-900.cursor-pointer{for: "q_category_id_in_782302d6-a87b-4347-a77b-bbcc70c106ab"}
+                                  / BEGIN app/views/transactions/categories/_badge.html.erb
+                                  %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #6471eb 5%, white);\r\n    border-color: color-mix(in srgb, #6471eb 10%, white);\r\n    color: #6471eb;"}
+                                    Entertainment
+                                  / END app/views/transactions/categories/_badge.html.erb
+                              .filterable-item.flex.items-center.gap-2.p-2{"data-filter-name" => "Personal Care"}
+                                %input#q_category_id_in_05b8be5e-0bae-4402-989b-3d68a7b8cbe9.rounded-sm.border-gray-300.text-indigo-600.shadow-xs.focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50{"data-auto-submit-form-target" => "auto", name: "q[category_id_in][]", type: "checkbox", value: "05b8be5e-0bae-4402-989b-3d68a7b8cbe9"}/
+                                %label.text-sm.text-gray-900.cursor-pointer{for: "q_category_id_in_05b8be5e-0bae-4402-989b-3d68a7b8cbe9"}
+                                  / BEGIN app/views/transactions/categories/_badge.html.erb
+                                  %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #db5a54 5%, white);\r\n    border-color: color-mix(in srgb, #db5a54 10%, white);\r\n    color: #db5a54;"}
+                                    Personal Care
+                                  / END app/views/transactions/categories/_badge.html.erb
+                              .filterable-item.flex.items-center.gap-2.p-2{"data-filter-name" => "General Services"}
+                                %input#q_category_id_in_b7095df9-1beb-48ba-a3bc-a592e8fdc050.rounded-sm.border-gray-300.text-indigo-600.shadow-xs.focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50{"data-auto-submit-form-target" => "auto", name: "q[category_id_in][]", type: "checkbox", value: "b7095df9-1beb-48ba-a3bc-a592e8fdc050"}/
+                                %label.text-sm.text-gray-900.cursor-pointer{for: "q_category_id_in_b7095df9-1beb-48ba-a3bc-a592e8fdc050"}
+                                  / BEGIN app/views/transactions/categories/_badge.html.erb
+                                  %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #df4e92 5%, white);\r\n    border-color: color-mix(in srgb, #df4e92 10%, white);\r\n    color: #df4e92;"}
+                                    General Services
+                                  / END app/views/transactions/categories/_badge.html.erb
+                              .filterable-item.flex.items-center.gap-2.p-2{"data-filter-name" => "Salary"}
+                                %input#q_category_id_in_1be92cab-c523-4b38-8982-014c8e8136a9.rounded-sm.border-gray-300.text-indigo-600.shadow-xs.focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50{"data-auto-submit-form-target" => "auto", name: "q[category_id_in][]", type: "checkbox", value: "1be92cab-c523-4b38-8982-014c8e8136a9"}/
+                                %label.text-sm.text-gray-900.cursor-pointer{for: "q_category_id_in_1be92cab-c523-4b38-8982-014c8e8136a9"}
+                                  / BEGIN app/views/transactions/categories/_badge.html.erb
+                                  %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #c44fe9 5%, white);\r\n    border-color: color-mix(in srgb, #c44fe9 10%, white);\r\n    color: #c44fe9;"}
+                                    Salary
+                                  / END app/views/transactions/categories/_badge.html.erb
+                              .filterable-item.flex.items-center.gap-2.p-2{"data-filter-name" => "Rent & Utilities"}
+                                %input#q_category_id_in_97f31769-dceb-41e3-b5e4-870a1ce7b54d.rounded-sm.border-gray-300.text-indigo-600.shadow-xs.focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50{"data-auto-submit-form-target" => "auto", name: "q[category_id_in][]", type: "checkbox", value: "97f31769-dceb-41e3-b5e4-870a1ce7b54d"}/
+                                %label.text-sm.text-gray-900.cursor-pointer{for: "q_category_id_in_97f31769-dceb-41e3-b5e4-870a1ce7b54d"}
+                                  / BEGIN app/views/transactions/categories/_badge.html.erb
+                                  %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #eb5429 5%, white);\r\n    border-color: color-mix(in srgb, #eb5429 10%, white);\r\n    color: #eb5429;"}
+                                    Rent &amp; Utilities
+                                  / END app/views/transactions/categories/_badge.html.erb
+                              .filterable-item.flex.items-center.gap-2.p-2{"data-filter-name" => "Home Improvement"}
+                                %input#q_category_id_in_fe8a67ae-5753-45ad-a1bd-d85d2441c894.rounded-sm.border-gray-300.text-indigo-600.shadow-xs.focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50{"data-auto-submit-form-target" => "auto", name: "q[category_id_in][]", type: "checkbox", value: "fe8a67ae-5753-45ad-a1bd-d85d2441c894"}/
+                                %label.text-sm.text-gray-900.cursor-pointer{for: "q_category_id_in_fe8a67ae-5753-45ad-a1bd-d85d2441c894"}
+                                  / BEGIN app/views/transactions/categories/_badge.html.erb
+                                  %span.border.text-sm.font-medium.py-1.rounded-full.cursor-pointer.content-center{class: "px-2.5", style: "\r\n    background-color: color-mix(in srgb, #61c9ea 5%, white);\r\n    border-color: color-mix(in srgb, #61c9ea 10%, white);\r\n    color: #61c9ea;"}
+                                    Home Improvement
+                                  / END app/views/transactions/categories/_badge.html.erb
+                          / END app/views/transactions/search_form/_category_filter.html.erb
+                        #txn-merchant-filter.hidden{"data-tabs-target" => "tab"}
+                          / BEGIN app/views/transactions/search_form/_merchant_filter.html.erb
+                          %div{"data-controller" => "list-filter"}
+                            .relative
+                              %input.block.w-full.border.border-gray-200.rounded-md.py-2.pl-10.pr-3.focus:border-indigo-500.focus:ring-indigo-500.sm:text-sm{autocomplete: "off", "data-action" => "input->list-filter#filter", "data-list-filter-target" => "input", placeholder: "Filter merchants", type: "search"}/
+                              %svg.w-5.h-5.text-gray-500.absolute.inset-y-0.left-2.transform{"aria-hidden" => "true", class: "top-1/2 -translate-y-1/2", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+                                %circle{cx: "11", cy: "11", r: "8"}
+                                %path{d: "m21 21-4.3-4.3"}
+                            #list.my-2{"data-list-filter-target" => "list"}
+                              .filterable-item.flex.items-center.gap-2.p-2{"data-filter-name" => "Money"}
+                                %input#q_merchant_id_in_8574f803-275c-4af9-95b6-ae148b569346.rounded-sm.border-gray-300.text-indigo-600.shadow-xs.focus:border-indigo-300.focus:ring.focus:ring-indigo-200.focus:ring-opacity-50{name: "q[merchant_id_in][]", type: "checkbox", value: "8574f803-275c-4af9-95b6-ae148b569346"}/
+                                %label.text-sm.text-gray-900{for: "q_merchant_id_in_8574f803-275c-4af9-95b6-ae148b569346"} Money
+                          / END app/views/transactions/search_form/_merchant_filter.html.erb
+                      .flex.justify-end.items-center.gap-2.bg-white.p-3
+                        %button.py-2.px-3.bg-gray-50.rounded-lg.text-sm.text-gray-900.font-medium{"data-action" => "menu#close", name: "button", type: "reset"}
+                          Cancel
+                        %button.py-2.px-3.bg-gray-900.rounded-lg.text-sm.text-white.font-medium{name: "button", type: "submit"}
+                          Apply
+        / END app/views/transactions/_search_form.html.erb
+        / BEGIN app/views/transactions/_filters.html.erb
+        %div
+          %turbo-frame#transactions_filters
+            .flex.items-center.flex-wrap.gap-2
+        / END app/views/transactions/_filters.html.erb
+        / BEGIN app/views/transactions/_list.html.erb
+        %div
+          %turbo-frame#transactions_list
+            .bg-gray-25.rounded-xl.px-5.py-3.text-xs.font-medium.text-gray-500.flex.items-center.gap-6.mb-4
+              .w-96
+                %p.uppercase transaction
+              .w-48
+                %p.uppercase category
+              .grow.uppercase.flex.justify-between.items-center.gap-5.text-xs.font-medium.text-gray-500
+                %p account
+                %p amount
+            .space-y-6
+              = render partial: 'transactions/transaction'
+              = render partial: 'transactions/transaction'
+%turbo-frame#modal
+/ BEGIN app/views/shared/_confirm_modal.html.erb
+%dialog#turbo-confirm.w-full.rounded-xl{class: "max-w-[420px]"}
+  %form.p-4{method: "dialog"}
+    .flex.flex-col.mb-4
+      .flex.justify-between.mb-2.gap-4
+        %h3#turbo-confirm-title.font-medium.text-md Are you sure?
+        %button{value: "cancel"}
+          %svg.w-5.h-5.shrink-0.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+            %path{d: "M18 6 6 18"}
+            %path{d: "m6 6 12 12"}
+      #turbo-confirm-body.text-gray-500.text-sm
+        %p You will not be able to undo this decision
+    %button#turbo-confirm-accept.w-full.text-red-600.rounded-xl.text-center.border.mb-2{class: "p-[10px]", value: "confirm"} Confirm
+    %button.w-full.rounded-xl.text-center.border{class: "p-[10px]", value: "cancel"} Cancel
+/ END app/views/shared/_confirm_modal.html.erb
+/ BEGIN app/views/shared/_upgrade_notification.html.erb
+/ END app/views/shared/_upgrade_notification.html.erb

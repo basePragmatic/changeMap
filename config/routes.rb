@@ -7,7 +7,10 @@ Rails.application.routes.draw do
 
   resources :maps
 
-  # Defines the root path route ("/")
-  root "static_pages#index"
   get "accounts", to: "static_pages#accounts", as: :accounts
+  get "dashboard", to: "static_pages#dashboard", as: :dashboard
+  get "transactions", to: "static_pages#transactions", as: :transactions
+  get "profile", to: "static_pages#profile", as: :profile
+
+  root "static_pages#index"
 end
