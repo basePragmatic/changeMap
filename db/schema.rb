@@ -10,18 +10,25 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_03_115824) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_25_174902) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
   create_table "maps", force: :cascade do |t|
-    t.string "source_exchange"
-    t.string "destination_exchange_currency"
-    t.float "source_exchange_currency_amount"
-    t.float "destination_exchange_currency_amount"
-    t.float "lost_amount"
+    t.string "from_exchange_item"
+    t.string "where_exchange_item"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.integer "amount"
+    t.integer "commission"
+    t.bigint "map_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["map_id"], name: "index_transactions_on_map_id"
+  end
+
+  add_foreign_key "transactions", "maps"
 end
