@@ -1,0 +1,7 @@
+/ BEGIN app/views/transactions/search_form/_search_filter.html.erb
+.relative.flex.items-center.bg-white.border.border-gray-200.rounded-lg
+  %input#q_category_name_or_merchant_name_or_account_name_or_name_cont.placeholder:text-sm.placeholder:text-gray-500.relative.pl-10.w-full.border-none.rounded-lg{"data-auto-submit-form-target" => "auto", name: "q[category_name_or_merchant_name_or_account_name_or_name_cont]", placeholder: "Search transaction by name, merchant, category or amount", type: "search"}/
+  %svg.w-5.h-5.text-gray-500.ml-2.absolute.inset-0.transform{"aria-hidden" => "true", class: "top-1/2 -translate-y-1/2", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
+    %circle{cx: "11", cy: "11", r: "8"}
+    %path{d: "m21 21-4.3-4.3"}
+/ END app/views/transactions/search_form/_search_filter.html.erb

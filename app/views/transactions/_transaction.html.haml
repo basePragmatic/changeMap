@@ -1,7 +1,7 @@
 .bg-gray-25.rounded-xl.p-1.w-full
   .py-2.px-4.flex.items-center.justify-between.font-medium.text-xs.text-gray-500
     %h4 Jun 07, 2024 · 1
-    %span -$40,000.00
+    %span= item.amount
   .bg-white.shadow-xs.rounded-md.border.border-alpha-black-25.divide-y.divide-alpha-black-50
     / BEGIN app/views/transactions/_transaction.html.erb
     %turbo-frame#transaction_49938aef-4962-493a-a1f9-f0de854930c0.text-gray-900.flex.items-center.gap-6.py-4.text-sm.font-medium.px-4
@@ -11,7 +11,7 @@
           .w-8.h-8.flex.items-center.justify-center.rounded-full.text-gray-600{class: "bg-gray-600/5"}
             P
           %p.text-gray-900.group-hover:underline.group-hover:text-gray-800.truncate
-            Paypal
+            = item.map.from_exchange_item
         / END app/views/transactions/_transaction_name.html.erb
       .w-48
         / BEGIN app/views/transactions/categories/_menu.html.erb
@@ -326,5 +326,5 @@
       %div
         %p Main
       .ml-auto
-        %p.whitespace-nowrap -$40,000.00
+        %p.whitespace-nowrap= item.amount
     / END app/views/transactions/_transaction.html.erb

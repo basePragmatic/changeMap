@@ -27,22 +27,7 @@
                 %path{d: "M5 12h14"}
                 %path{d: "M12 5v14"}
               %p New transaction
-      %div
-        / BEGIN app/views/transactions/_summary.html.erb
-        %turbo-frame#transactions_summary
-          .grid.grid-cols-3.bg-white.rounded-xl.border.border-alpha-black-25.shadow-xs.px-4.divide-x.divide-alpha-black-100
-            .p-4.space-y-2
-              %p.text-sm.text-gray-500 Total transactions
-              %p.text-gray-900.font-medium.text-xl 2
-            .p-4.space-y-2
-              %p.text-sm.text-gray-500 Income
-              %p.text-gray-900.font-medium.text-xl
-                $80,000.00
-            .p-4.space-y-2
-              %p.text-sm.text-gray-500 Expenses
-              %p.text-gray-900.font-medium.text-xl
-                $0.00
-        / END app/views/transactions/_summary.html.erb
+      = render partial: 'summary'
       #transactions.bg-white.rounded-xl.border.border-alpha-black-25.shadow-xs.p-4.space-y-4
         / BEGIN app/views/transactions/_search_form.html.erb
         %div
@@ -51,13 +36,7 @@
               %input{autocomplete: "off", name: "authenticity_token", type: "hidden", value: "cYoPmAEAnxR156cYGdCZJ_3TzNeMqfGsO39-EymDo1nGLAVh-37ZvaN8LWYOXLzn94h5TmDLKdBPs1BDGos_bQ"}/
               .flex.gap-2.mb-4
                 .grow
-                  / BEGIN app/views/transactions/search_form/_search_filter.html.erb
-                  .relative.flex.items-center.bg-white.border.border-gray-200.rounded-lg
-                    %input#q_category_name_or_merchant_name_or_account_name_or_name_cont.placeholder:text-sm.placeholder:text-gray-500.relative.pl-10.w-full.border-none.rounded-lg{"data-auto-submit-form-target" => "auto", name: "q[category_name_or_merchant_name_or_account_name_or_name_cont]", placeholder: "Search transaction by name, merchant, category or amount", type: "search"}/
-                    %svg.w-5.h-5.text-gray-500.ml-2.absolute.inset-0.transform{"aria-hidden" => "true", class: "top-1/2 -translate-y-1/2", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
-                      %circle{cx: "11", cy: "11", r: "8"}
-                      %path{d: "m21 21-4.3-4.3"}
-                  / END app/views/transactions/search_form/_search_filter.html.erb
+                  = render partial: 'search_filter'
                 .relative{"data-controller" => "menu"}
                   %button.border.border-gray-200.block.h-full.rounded-lg.flex.items-center.gap-2.px-4{"data-menu-target" => "button", type: "button"}
                     %svg.w-5.h-5.text-gray-500{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
@@ -245,8 +224,8 @@
                 %p account
                 %p amount
             .space-y-6
-              = render partial: 'transactions/transaction'
-              = render partial: 'transactions/transaction'
+              - @transactions.each do |item|
+                = render partial: 'transactions/transaction', locals: { item: item }
 %turbo-frame#modal
 / BEGIN app/views/shared/_confirm_modal.html.erb
 %dialog#turbo-confirm.w-full.rounded-xl{class: "max-w-[420px]"}
