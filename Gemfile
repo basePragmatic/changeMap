@@ -49,3 +49,5 @@ group :test do
 end
 
 gem 'rspec-rails'
+gem 'bunny'
+gem 'sidekiq'
