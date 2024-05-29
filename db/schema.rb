@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.1].define(version: 2024_05_29_173015) do
+ActiveRecord::Schema[7.1].define(version: 2024_05_29_173804) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -19,6 +19,8 @@ ActiveRecord::Schema[7.1].define(version: 2024_05_29_173015) do
     t.string "where_exchange_item"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
+    t.index ["user_id"], name: "index_maps_on_user_id"
   end
 
   create_table "transactions", force: :cascade do |t|
