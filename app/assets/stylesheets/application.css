@@ -1,1 +1,9 @@
 /* Application styles */
+
+.online {
+  color: green;
+}
+
+.offline {
+  color: red;
+}

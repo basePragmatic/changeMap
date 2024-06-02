@@ -120,6 +120,10 @@
           %section.bg-white.border.border-alpha-black-25.shadow-xs.rounded-xl.p-4.space-y-4
             %div
               %h2.text-lg.font-medium.text-gray-900 Profile
+              - user = User.last
+              %p{id: "user_status_#{user.id}"}
+                = user.email
+                %span{class: "#{user.online ? 'online' : 'offline'}"}= user.online ? 'online' : 'offline'
               %p.text-gray-500.text-sm.mt-1 Customize how you appear on Maybe
             %div
               %form.space-y-4{"accept-charset" => "UTF-8", action: "/settings/profile", "data-controller" => "profile-image-preview", enctype: "multipart/form-data", method: "post"}
