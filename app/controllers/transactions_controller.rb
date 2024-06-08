@@ -5,9 +5,16 @@ class TransactionsController < ApplicationController
 
   def create
     @transaction = Transaction.new
-    if @transaction.save
-      RabbitmqSender.send_transaction(@transaction.id)
+
+    ActiveRecord::Base.transaction do
+      if @transaction.save
+        RabbitmqSender.send_transaction(@transaction.id)
+      end
     end
+  end
+
+  def new
+    @transaction = Transaction.new
   end
 
   def private
