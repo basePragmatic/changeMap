@@ -41,7 +41,8 @@
             %section.space-y-2
               .form-field
                 %label.form-field__label{for: "transaction_name"} Description
-                %input#transaction_name.form-field__input{name: "transaction[name]", placeholder: "Describe transaction", required: "required", type: "text"}/
+                = f.select :map_id, Map.map_names
+                -# = f.text_field :from_exchange_item, id: 'transaction_name', class: 'form-field__input'
               .form-field
                 %label.form-field__label{for: "transaction_account_id"} Account
                 %select#transaction_account_id.form-field__input{name: "transaction[account_id]"}
