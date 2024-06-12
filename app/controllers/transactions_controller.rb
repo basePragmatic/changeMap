@@ -4,13 +4,21 @@ class TransactionsController < ApplicationController
   end
 
   def create
-    @transaction = Transaction.new
-    if @transaction.save
-      RabbitmqSender.send_transaction(@transaction.id)
+    @transaction = Transaction.new(transaction_params)
+
+    ActiveRecord::Base.transaction do
+      if @transaction.save
+        RabbitmqSender.send_transaction(@transaction.id)
+        redirect_to root_path
+      end
     end
   end
 
-  def private
-    params.require(:transaction).permit(:amount, :map_id)
+  def new
+    @transaction = Transaction.new
+  end
+
+  def transaction_params
+    params.require(:transaction).permit(:amount, :map_id, :date)
   end
 end
