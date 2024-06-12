@@ -12,75 +12,33 @@
               %path{d: "m6 6 12 12"}
           / BEGIN app/views/transactions/_form.html.erb
           = form_for @transaction, class: 'space-y-4', method: :post do |f|
-            %section
-              %fieldset.bg-gray-50.rounded-lg.p-1.grid.grid-flow-col.justify-stretch.gap-x-2
-                %label.group{class: "has-[:disabled]:cursor-not-allowed", for: "transaction_nature_expense"}
-                  .flex.px-4.py-1.rounded-lg.items-center.space-x-2.justify-center.text-gray-400{class: "group-has-[:checked]:bg-white group-has-[:checked]:text-gray-800 group-has-[:checked]:shadow-sm"}
-                    %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
-                      %circle{cx: "12", cy: "12", r: "10"}
-                      %path{d: "M8 12h8"}
-                    %span{class: "group-has-[:checked]:font-semibold"} Expense
-                  %input#transaction_nature_expense.hidden{checked: "checked", name: "transaction[nature]", type: "radio", value: "expense"}/
-                %label.group{class: "has-[:disabled]:cursor-not-allowed", for: "transaction_nature_income"}
-                  .flex.px-4.py-1.rounded-lg.items-center.space-x-2.justify-center.text-gray-400{class: "group-has-[:checked]:bg-white group-has-[:checked]:text-gray-800 group-has-[:checked]:shadow-sm"}
-                    %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
-                      %circle{cx: "12", cy: "12", r: "10"}
-                      %path{d: "M8 12h8"}
-                      %path{d: "M12 8v8"}
-                    %span{class: "group-has-[:checked]:font-semibold"} Income
-                  %input#transaction_nature_income.hidden{name: "transaction[nature]", type: "radio", value: "income"}/
-                %label.group{class: "has-[:disabled]:cursor-not-allowed", for: "transaction_nature_transfer"}
-                  .flex.px-4.py-1.rounded-lg.items-center.space-x-2.justify-center.text-gray-400{class: "group-has-[:checked]:bg-white group-has-[:checked]:text-gray-800 group-has-[:checked]:shadow-sm"}
-                    %svg.w-5.h-5{"aria-hidden" => "true", fill: "none", height: "24", stroke: "currentColor", "stroke-linecap" => "round", "stroke-linejoin" => "round", "stroke-width" => "2", viewbox: "0 0 24 24", width: "24"}
-                      %path{d: "m16 3 4 4-4 4"}
-                      %path{d: "M20 7H4"}
-                      %path{d: "m8 21-4-4 4-4"}
-                      %path{d: "M4 17h16"}
-                    %span{class: "group-has-[:checked]:font-semibold"} Transfer
-                  %input#transaction_nature_transfer.hidden{disabled: "disabled", name: "transaction[nature]", type: "radio", value: "transfer"}/
             %section.space-y-2
               .form-field
                 %label.form-field__label{for: "transaction_name"} Description
                 = f.select :map_id, Map.map_names
-                -# = f.text_field :from_exchange_item, id: 'transaction_name', class: 'form-field__input'
-              .form-field
-                %label.form-field__label{for: "transaction_account_id"} Account
-                %select#transaction_account_id.form-field__input{name: "transaction[account_id]"}
-                  %option{value: ""} Select an Account
               .form-field{"data-controller" => "money-field"}
                 %label.form-field__label{for: "transaction_amount_money"} Amount
                 .flex.items-center
                   = f.text_field :amount, class: 'form-field__input', placeholder: "$0.00", required: "required", step: "0.01", id: 'transaction_amount'
-                  .flex.items-center
-                    %select#transaction_currency.ml-auto.form-field__input.w-fit.pr-8{"data-action" => "change->money-field#handleCurrencyChange", "data-money-field-target" => "currency", name: "transaction[currency]"}
-                      %optgroup{label: "Popular"}
-                        %option{value: "USD"} USD
-                        %option{value: "EUR"} EUR
-                        %option{value: "GBP"} GBP
-                        %option{value: "AUD"} AUD
-                        %option{value: "CAD"} CAD
-                        %option{value: "JPY"} JPY
-                        %option{value: "BYR"} BYR
-                        %option{value: "SHP"} SHP
-                        %option{value: "SKK"} SKK
-                        %option{value: "SLE"} SLE
-                        %option{value: "SLL"} SLL
-                        %option{value: "SOS"} SOS
-              .form-field
-                %label.form-field__label{for: "transaction_category_id"} Category
-                %select#transaction_category_id.form-field__input{name: "transaction[category_id]", required: "required"}
-                  %option{value: ""} Select a Category
-                  %option{value: "959677b0-cbe4-4601-9ac3-1f74f2df99a6"} Auto &amp; Transport
-                  %option{value: "5a0f368c-2d09-4de5-8892-68ad1697fd75"} Entertainment
-                  %option{value: "1f3b2dd9-e5f1-4295-baab-e88a06a3bea9"} Food &amp; Drink
-                  %option{value: "b0b23cae-cf53-4232-9da0-508f5c48d4dd"} General Services
-                  %option{value: "1c5008dd-03e7-4dd3-a25a-e796c6537aca"} Home Improvement
-                  %option{value: "7deaff35-9628-437d-a7c5-b737698ec608"} Income
-                  %option{value: "8a1c8c32-f005-4d11-ab5c-c744efd21552"} Personal Care
-                  %option{value: "3d7fdfe8-526e-46d0-ae4e-7beaa3b1b801"} Rent &amp; Utilities
+                  -# .flex.items-center
+                  -#   %select#transaction_currency.ml-auto.form-field__input.w-fit.pr-8{"data-action" => "change->money-field#handleCurrencyChange", "data-money-field-target" => "currency", name: "transaction[currency]"}
+                  -#     %optgroup{label: "Popular"}
+                  -#       %option{value: "USD"} USD
+              -# .form-field
+              -#   %label.form-field__label{for: "transaction_category_id"} Category
+              -#   %select#transaction_category_id.form-field__input{name: "transaction[category_id]", required: "required"}
+              -#     %option{value: ""} Select a Category
+              -#     %option{value: "959677b0-cbe4-4601-9ac3-1f74f2df99a6"} Auto &amp; Transport
+              -#     %option{value: "5a0f368c-2d09-4de5-8892-68ad1697fd75"} Entertainment
+              -#     %option{value: "1f3b2dd9-e5f1-4295-baab-e88a06a3bea9"} Food &amp; Drink
+              -#     %option{value: "b0b23cae-cf53-4232-9da0-508f5c48d4dd"} General Services
+              -#     %option{value: "1c5008dd-03e7-4dd3-a25a-e796c6537aca"} Home Improvement
+              -#     %option{value: "7deaff35-9628-437d-a7c5-b737698ec608"} Income
+              -#     %option{value: "8a1c8c32-f005-4d11-ab5c-c744efd21552"} Personal Care
+              -#     %option{value: "3d7fdfe8-526e-46d0-ae4e-7beaa3b1b801"} Rent &amp; Utilities
               .form-field
                 %label.form-field__label{for: "transaction_date"} Date
-                %input#transaction_date.form-field__input{name: "transaction[date]", required: "required", type: "date"}/
+                = f.date_field :date, class: 'form-field__input', id: 'transaction_date'
             %section
               = f.submit 'Add transaction', class: 'form-field__submit'
           / END app/views/transactions/_form.html.erb
