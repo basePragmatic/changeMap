@@ -11,7 +11,7 @@
           .w-8.h-8.flex.items-center.justify-center.rounded-full.text-gray-600{class: "bg-gray-600/5"}
             P
           %p.text-gray-900.group-hover:underline.group-hover:text-gray-800.truncate
-            = item.map.from_exchange_item
+            = "From: #{@map.from_exchange_item} | Where: #{@map.where_exchange_item}"
         / END app/views/transactions/_transaction_name.html.erb
       .w-48
         / BEGIN app/views/transactions/categories/_menu.html.erb
