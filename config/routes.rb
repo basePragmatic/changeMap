@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get "up" => "rails/health#show", as: :rails_health_check
 
   resources :maps
+  resources :users
   resources :transactions
 
   get "accounts", to: "static_pages#accounts", as: :accounts
