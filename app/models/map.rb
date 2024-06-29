@@ -1,5 +1,5 @@
 class Map < ApplicationRecord
-  belongs_to :user
+  belongs_to :user, optional: true
   has_many :transactions
 
   # scope :by_name, -> (query) { where("name LIKE ?", "%#{query}%") }

@@ -52,3 +52,4 @@ gem 'rspec-rails'
 gem 'bunny'
 gem 'sidekiq'
 gem "devise", "~> 4.9"
+gem "view_component"

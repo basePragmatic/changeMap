@@ -1,6 +1,7 @@
 class TransactionsController < ApplicationController
   def index
     @transactions = Transaction.all
+    @transaction_presenter = MapPresenter.new
   end
 
   def create
