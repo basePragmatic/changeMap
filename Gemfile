@@ -29,14 +29,14 @@ gem "jbuilder"
 # Use Redis adapter to run Action Cable in production
 gem "redis", ">= 4.0.1"
 
-gem "tzinfo-data", platforms: %i[ windows jruby ]
+gem "tzinfo-data", platforms: %i[windows jruby]
 gem "bootsnap", require: false
 
 gem "haml-rails", "~> 2.0"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem
-  gem "debug", platforms: %i[ mri windows ]
+  gem "debug", platforms: %i[mri windows]
 end
 
 group :development do
@@ -48,8 +48,10 @@ group :test do
   gem "selenium-webdriver"
 end
 
-gem 'rspec-rails'
-gem 'bunny'
-gem 'sidekiq'
+gem "standard", group: [:development, :test]
+
+gem "rspec-rails"
+gem "bunny"
+gem "sidekiq"
 gem "devise", "~> 4.9"
 gem "view_component"

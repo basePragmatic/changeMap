@@ -1,15 +1,13 @@
-require 'sidekiq'
-require 'bunny'
+require "sidekiq"
+require "bunny"
 
 class TransactionWorker
   include Sidekiq::Worker
 
   def perform(transaction_id)
-    begin
-      transaction = Transaction.find(transaction_id)
-      puts "Processed transaction ##{transaction_id}"
-    rescue ActiveRecord::RecordNotFound
-      puts "Transaction with ID ##{transaction_id} not found"
-    end
+    transaction = Transaction.find(transaction_id)
+    puts "Processed transaction ##{transaction}"
+  rescue ActiveRecord::RecordNotFound
+    puts "Transaction with ID ##{transaction} not found"
   end
 end
