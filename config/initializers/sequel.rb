@@ -1,5 +1,5 @@
-require 'sequel'
+require "sequel"
 
-DB = Sequel.sqlite('db/development.sqlite3')
+DB = Sequel.sqlite("db/development.sqlite3")
 
-Dir[File.join(Rails.root, 'app', 'models', '*.rb')].each { |file| require file }
+Dir[File.join(Rails.root, "app", "models", "*.rb")].each { |file| require file }

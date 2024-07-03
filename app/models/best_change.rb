@@ -1,6 +1,6 @@
-require 'sequel'
+require "sequel"
 
-DB = Sequel.sqlite('db/development.sqlite3')
+DB = Sequel.sqlite("db/development.sqlite3")
 
 DB.create_table? :bestchanges do
   primary_key :id

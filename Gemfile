@@ -56,5 +56,5 @@ gem "sidekiq"
 gem "devise", "~> 4.9"
 gem "view_component"
 
-gem 'sequel'
-gem 'sqlite3'
+gem "sequel"
+gem "sqlite3"
