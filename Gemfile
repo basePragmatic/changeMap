@@ -59,5 +59,5 @@ gem "view_component"
 gem "sequel"
 gem "sqlite3"
 
-gem 'elasticsearch-model'
-gem 'elasticsearch-rails'
+gem "elasticsearch-model"
+gem "elasticsearch-rails"
