@@ -10,11 +10,5 @@ Rails.application.routes.draw do
   resources :users
   resources :transactions
 
-  get "accounts", to: "static_pages#accounts", as: :accounts
-  get "dashboard", to: "static_pages#dashboard", as: :dashboard
-  # get "transactions", to: "static_pages#transactions", as: :transactions
-  get "profile", to: "static_pages#profile", as: :profile
-  get "categories", to: "static_pages#categories", as: :categories
-
   root "static_pages#index"
 end
