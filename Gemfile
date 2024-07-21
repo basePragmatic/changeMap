@@ -58,3 +58,4 @@ gem "view_component"
 
 gem "sequel"
 gem "sqlite3"
+gem "lookbook"
